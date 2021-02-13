@@ -1,0 +1,158 @@
+function tab = readRKIRawData( infile, dstdir, version, inputFormat, idpos, debug )
+% dstdir:       Zielverzeichnis
+% version:      0 aktuell, 1 historisch
+% inputFormat:  ZeitFormat
+% idpos:        Position der Meldungs-Ids (0 aktuell, ~0 historisch)
+% debug:        Debugging (nur im Fall idpos=0)
+
+	% Spalten-Namen und Spalten-Typen
+	namesPos0 = { 'ObjectId', 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', ...
+                  'Geschlecht', 'Fallanzahl', 'TodesfallAnzahl', 'Meldedatum', ...
+                  'LandkreisId', 'Datenstand', 'NeuerFall', 'NeuerTodesfall', ...
+                  'Referenzdatum', 'NeuGenesen', 'GenesenAnzahl', 'IstErkrankungsbeginn', ...
+                  'Altersgruppe2' ...
+                };
+	typesPos0 = { 'uint32', 'int8', 'char', 'char', 'categorical', ...
+                  'categorical', 'uint32', 'uint32', 'datetime', ...
+                  'int16', 'char', 'int8', 'int8', ...
+                  'datetime', 'logical', 'uint32', 'logical', ...
+                  'categorical' ...
+                };
+	namesPos1 = { 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', ...
+                  'Geschlecht', 'Fallanzahl', 'TodesfallAnzahl', 'FID', 'Meldedatum', ...
+                  'LandkreisId', 'Datenstand', 'NeuerFall', 'NeuerTodesfall', ...
+                  'Referenzdatum', 'NeuGenesen', 'GenesenAnzahl' ...
+                };
+	typesPos1 = { 'int8', 'char', 'char', 'categorical', ...
+                  'categorical', 'uint32', 'uint32', 'uint32', 'datetime', ...
+                  'int16', 'char', 'int8', 'int8', ...
+                  'datetime', 'logical', 'uint32' ...
+                };
+	namesPos2 = { 'ID', 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', ...
+                  'Geschlecht', 'Fallanzahl', 'TodesfallAnzahl', 'ObjectId', 'Meldedatum', ...
+                  'LandkreisId', 'Datenstand', 'NeuerFall', 'NeuerTodesfall', ...
+                  'Referenzdatum', 'NeuGenesen', 'GenesenAnzahl' ...
+                };
+	typesPos2 = { 'uint32', 'int8', 'char', 'char', 'categorical', ...
+                  'categorical', 'uint32', 'uint32', 'uint32', 'datetime', ...
+                  'int16', 'char', 'int8', 'int8', ...
+                  'datetime', 'logical', 'uint32' ...
+                };
+	namesPos3 = { 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', ...
+                  'Geschlecht', 'Fallanzahl', 'TodesfallAnzahl', 'FID', 'Meldedatum', ...
+                  'LandkreisId', 'Datenstand', 'NeuerFall', 'NeuerTodesfall'
+                };
+	typesPos3 = { 'int8', 'char', 'char', 'categorical', ...
+                  'categorical', 'uint32', 'uint32', 'uint32', 'datetime', ...
+                  'int16', 'char', 'int8', 'int8'
+                };
+    selected0 = { 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', 'Geschlecht', ...
+                  'Fallanzahl', 'TodesfallAnzahl', 'Meldedatum', 'LandkreisId', 'Datenstand', ...
+                  'NeuerFall', 'NeuerTodesfall', 'Referenzdatum', ...
+                };
+    selected3 = { 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', 'Geschlecht', ...
+                  'Fallanzahl', 'TodesfallAnzahl', 'Meldedatum', 'LandkreisId', 'Datenstand', ...
+                  'NeuerFall', 'NeuerTodesfall' ...
+                };
+    selectedDeb = { 'ObjectId', 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', ...
+                    'Geschlecht', 'Fallanzahl', 'TodesfallAnzahl', 'Meldedatum', ...
+                    'LandkreisId', 'Datenstand', 'NeuerFall', 'NeuerTodesfall', ...
+                    'Referenzdatum' ...
+                  };
+
+    switch idpos
+        case 0
+                names      = namesPos0;
+                types      = typesPos0;
+                selected   = selected0;
+                if( debug )
+                    selected = selectedDeb;
+                end
+                optsFormat = { 'Meldedatum', 'Referenzdatum' };
+
+        case 1
+                names      = namesPos1;
+                types      = typesPos1;
+                selected   = selected0;
+                optsFormat = { 'Meldedatum', 'Referenzdatum' };
+
+        case 2
+                names      = namesPos2;
+                types      = typesPos2;
+                selected   = selected0;
+                optsFormat = { 'Meldedatum', 'Referenzdatum' };
+
+        case 3
+                names      = namesPos3;
+                types      = typesPos3;
+                selected   = selected3;
+                optsFormat = 'Meldedatum';
+
+        otherwise
+            error( 'idpos unbekannt' )
+    end
+
+    opts = delimitedTextImportOptions( 'Delimiter', ',', 'DataLines', 2, ...
+            'VariableNames', names, 'SelectedVariableNames', selected, 'VariableTypes', ...
+            types, 'Encoding', 'UTF-8' );
+    opts = setvaropts( opts, optsFormat, 'InputFormat', inputFormat );
+    opts = setvaropts( opts, optsFormat, 'DatetimeFormat', 'dd.MM.yyyy' );
+    opts = setvaropts( opts, { 'Altersgruppe', 'Geschlecht' }, 'Ordinal', true );
+
+    tab = readtable( infile, opts );
+
+    % Datenstand extrahieren zur weiteren Verwendung
+    datenstand  = tab.Datenstand;
+    uDatenstand = unique( datenstand );
+    if( size( uDatenstand, 1 ) ~= 1 )
+        error( 'Fehler: Datenstand ist innerhalb des Datensatzes nicht einheitlich' )
+    end
+
+    switch version
+        case 0
+            datenstand = datetime( strtok( uDatenstand{ 1 }, 'U' ), 'InputFormat', ...
+                'dd.MM.yyyy, hh:mm' );
+
+        otherwise
+            datenstand = datetime( uDatenstand{ 1 }, 'InputFormat', inputFormat );
+    end
+
+    % Datenstand wird in der Tabelle nicht mehr benötigt, ebenso die beiden
+    % Variablen 
+    tab.Datenstand = [];
+
+    % Datenstand separat ablegen
+    tab = { tab, datenstand };
+
+    % Debugging: Ausgabe-Dateinamen anpassen
+    if( debug )
+        tableName = 'tableDebug';
+    else
+        tableName = 'table';
+    end
+
+    switch version
+        case 0
+            % Speichern zur weiteren Verwendung
+            fileName = [ tableName, '.mat' ];
+            save( fileName, 'tab' )
+
+            if( ~debug )
+                % Kopie speichern
+                [ tok, remain ] = strtok( fileName, '.' );
+                newName = [ dstdir, tok, '-', datestr( datenstand, 'dd.mm.yyyy' ), remain ];
+                copyfile( fileName, newName );
+            end
+
+        otherwise
+            % evtl. Speichern zur weiteren Verwendung
+            fileName = [ dstdir, tableName, '-', datestr( datenstand, 'dd.mm.yyyy' ), '.mat' ];
+
+            % speichern, falls noch nicht geschehen
+            if( isfile( fileName ) ~= 1 )
+                save( fileName, 'tab' )
+            end
+    end
+
+    home; sprintf( 'readRKIRawData(): fertig' )
+end

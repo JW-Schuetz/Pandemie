@@ -1,0 +1,1059 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 1cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "literate={{Ã€}{{\&quot;a}}1 {Ã¶}{{\&quot;o}}1 {ÃŒ}{{\&quot;u}}1}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /media/VBSharedFolder/Pandemie/LandkreiseNeuinfektionen.eps
+	scale 65
+	BoundingBox 0bp 0bp 877bp 455bp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Abb 7"
+
+\end_inset
+
+Anzahl der Kreise mit verschwindender, kleiner und hoher Inzidenz
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /media/VBSharedFolder/Pandemie/Testanzahlen.eps
+	scale 65
+	BoundingBox 0bp 0bp 877bp 464bp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Abb 8"
+
+\end_inset
+
+Tägliche Anzahl der PCR-Testungen in Deutschland
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Diskussion
+\end_layout
+
+\begin_layout Subsection*
+Zeitverlauf 
+\end_layout
+
+\begin_layout Standard
+Die zeitlichen Verläufe der Neuinfektionen über dem Meldedatum, die in den
+ Abbildungen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ dargestellt sind, fallen in den letzten Tagen des dargestellten Zeitraumes
+ oft mehr oder weniger stark ab.
+ Dies bedeutet aber nicht unbedingt eine Entschleunigung des Infektionsgeschehen
+s, sondern ist durch den Meldeverzug verursacht.
+ 
+\end_layout
+
+\begin_layout Standard
+Bei den Todesfällen der Abbildungen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ ist ähnliches zu beobachten, nur ist der Verzug hier durch die Erkrankungsdauer
+ (zusätzlich zum Meldeverzug) verursacht.
+ Der Todeszeitpunkt der Todesfälle geht aus den zur Verfügung stehenden
+ Daten nicht hervor, bekannt ist nur das Meldedatum des Todesfalles und
+ neu gemeldete Fälle versterben oft erst nach einiger Zeit.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Aus dem zeitlichen Versatz des April-Maximums der Neuinfektionen und der
+ Sterbefälle der Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ kann man diesen Zeitraum grob auf ca.
+ 18 Tage abschätzen.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+Todesfälle im Odenwaldkreis
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Datenstand vom 24.08.2020
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Für den Odenwaldkreis ist auffällig, dass es im Vergleich zu Deutschland
+ im April pro Einwohner ca.
+ 2 mal so viele Neuinfektionen gab (siehe Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), aber ca.
+ 7 mal so viele Todesfälle (siehe links in Abb.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Insgesamt sind im Odenwaldkreis von den 463 erkrankten Personen 63 gestorben,
+ das ist eine Sterberate von 13.6%, deutschlandweit liegt dieser Wert bei
+ 4.0%.
+ 
+\end_layout
+
+\begin_layout Standard
+Berücksichtigt man Altersgruppen, bekommt man für den Odenwaldkreis das
+ Ergebnis, dass 43 Patienten in der Altersgruppe 80+ Jahre starben, das
+ sind 46.7% (deutschlandweit 26.5%) der Infizierten.
+ In der Altersgruppe 60-79 Jahre starben 19 Patienten, das sind 17.8% (deutschlan
+dweit 7.8%) der Infizierten.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /media/VBSharedFolder/Pandemie/Neuinfektionen-Einwohneranzahl-Altersgruppen.eps
+	scale 35
+	BoundingBox -150bp 0bp 960bp 488bp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Abb 10"
+
+\end_inset
+
+Altersgruppen der Neuinfektionen Deutschland und Odenwaldkreis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Kreise mit den höchsten Sterberaten zeigt die Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Tab1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kreis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stadtkreis/Landkreis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sterberate [%]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sterberate 60-79 [%]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sterberate 80+ [%]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Odenwaldkreis
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.55
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.76
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46.74
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wolfsburg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.39
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45.68
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tirschenreuth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.79
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40.18
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Passau
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.91
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42.11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fürth
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.51
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.57
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Amberg-Sulzbach
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.61
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.81
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eisenach
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50.00
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Straubing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.11
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.29
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Würzburg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.96
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.09
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32.35
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bamberg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SK
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.82
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.57
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.57
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Tab1"
+
+\end_inset
+
+Kreise mit den höchsten Sterberaten
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Niedrige Todeszahlen während der 2.
+ Welle
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Datenstand vom 24.08.2020
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Für den Odenwaldkreis werden in Abbildung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) die Neuinfektionszahlen für die beiden Altersgruppen 0-59 Jahren und 60+
+ Jahren dargestellt.
+ 
+\end_layout
+
+\begin_layout Standard
+Während bei der 1.
+ Welle im April diese beiden Altersgruppen in etwa zu gleichen Anteilen
+ am Infektionsgeschehen beteiligt waren, ist es bei der 2.
+ Welle stark überwiegend die jüngere Altersgruppe der 0 bis 59 Jährigen.
+ Die über 59-jährigen sind fast nicht von Neuinfektionen betroffen.
+ 
+\end_layout
+
+\begin_layout Standard
+Dies erklärt die während der 2.
+ Welle nicht proportional zu den Neuinfektionen ansteigendenTodeszahlen.
+ 
+\end_layout
+
+\begin_layout Standard
+Deutschlandweit zeigt sich Vergleichbares (siehe Abbildung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)).
+ 
+\end_layout
+
+\begin_layout Subsection*
+Ausblick auf Dezember 2020 und Januar 2021
+\end_layout
+
+\begin_layout Standard
+Am 06.04.2020 gab es deutschlandweit bei der Altersgruppe 60+ ein Inzidenzmaximum
+ von 14.74 und ein zugehöriges Todesfallmaximum von 2.64 (siehe Abbildungen
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 5"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 6"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+Wenn man Linearität und Zeitinvarianz annimmt, kommt man für das Inzidenzmaximum
+ am 23.11.2020 in dieser Altersgruppe von 34.75 auf ein Todesfallmaximum von
+ 6.22 - deutschlandweit wären das in absoluten Zahlen ca.
+ 740 Todesfälle am Tag (ebenfalls in der Altersgruppe 60+).
+\end_layout
+
+\begin_layout Standard
+Leider stehen die genauen Sterbedaten der Todesfälle nicht zur Verfügung,
+ deshalb kann die Erkrankungsdauer der Todesfälle nur altersunspezifisch
+ der Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ entnommen werden: die zeitliche Differenz des Neuinfektionsmaximums (06.04.2020)
+ und des Todesfallmaximus (23.04.2020) beträgt 18 Tage.
+ 
+\end_layout
+
+\begin_layout Standard
+Zu erwarten wäre also am 01.12.2020 ein Todesfallmaximum von 6.22.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
