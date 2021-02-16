@@ -36,7 +36,7 @@ function f = plotInzidenzen( titel, events, cZero, cLow, cHigh, datum, landkreis
     % Events plotten
     legendStr = plotEvents( legendStr, events, ax.YLim( 2 ) );
 
-	legend( legendStr, 'Location', 'best' )
+	legend( legendStr, 'Location', 'southwest' )
 end
 
 function [ datum, without, low, high, keyLength ] = calcInzidenz( datum, landkreisKeys, ...
