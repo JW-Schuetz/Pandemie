@@ -40,6 +40,7 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
         f = plotTestanzahl( titel, 250000, testAnzahl );
         figures = [ figures; { f, 'Testanzahlen' } ];
     else
+        % Plot Datenstand
         titel = 'Neuinfektionen/Todesfälle Datenstandsdatum';
         f = plotDatenstand( titel, datum, fak, Name, events );
         f.WindowState = 'maximized';
