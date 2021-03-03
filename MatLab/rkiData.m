@@ -1,4 +1,4 @@
-function rkiData()
+ function rkiData()
     clc
     clear
 
