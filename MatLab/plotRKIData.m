@@ -43,7 +43,7 @@ function plotRKIData()
 
     for k = 1 : length( kreisId )
 
-        kreisId( k )
+        kreisId( k ) %#ok<NOPRT>
 
         doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
                  kreisId( k ), bundesLandId, events )
@@ -55,13 +55,13 @@ function plotRKIData()
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
             cmd = sprintf( '%s -e pdf ../LyX/%s.lyx', exe, name );
-            [ state, out ] = system( cmd );
+            [ state, ~ ] = system( cmd );
             if( state )
                 error( 'Kommando \"%s\" scheiterte!', cmd )
             end
 
             cmd = sprintf( 'move /Y ../LyX/%s.pdf ..', name );
-            [ state, out ] = system( cmd );
+            [ state, ~ ] = system( cmd );
             if( state )
                 error( 'Kommando \"%s\" scheiterte!', cmd )
             end
