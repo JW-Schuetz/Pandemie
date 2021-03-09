@@ -94,7 +94,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /media/VBSharedFolder/Pandemie/LandkreiseNeuinfektionen.eps
+	filename LandkreiseNeuinfektionen.eps
 	scale 65
 	BoundingBox 0bp 0bp 877bp 455bp
 
@@ -131,7 +131,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /media/VBSharedFolder/Pandemie/Testanzahlen.eps
+	filename Testanzahlen.eps
 	scale 65
 	BoundingBox 0bp 0bp 877bp 464bp
 
@@ -322,7 +322,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /media/VBSharedFolder/Pandemie/Neuinfektionen-Einwohneranzahl-Altersgruppen.eps
+	filename Neuinfektionen-Einwohneranzahl-Altersgruppen.eps
 	scale 35
 	BoundingBox -150bp 0bp 960bp 488bp
 

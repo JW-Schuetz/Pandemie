@@ -12,7 +12,7 @@ function plotRKIData()
 	};
 
     % Auswerteparameter
-    auto           = 0;
+    auto           = 1;     % automatische Konversion in PDF-Dateien (mit LyX)
     withTestanzahl = 0;     % nur Anzahl der Tests plotten
     withAge80Plus  = 0;     % Plot separate Altersklasse 80+
     saveData       = 1;     % erzeugte Grafiken/Statistik speichern
@@ -22,10 +22,10 @@ function plotRKIData()
 
     % Zielordner für die erzeugten Dateien (im Fall saveData=true)
     if( auto )
-        outputDirPrefix = 'D:\Projekte\Pandemie\LyX\'; %#ok<UNRCH>
-        kreisName       = { 'Odenwald', 'Darmstadt', 'Frankfurt', 'Gross-Gerau', 'LK Offenbach' };
+        outputDirPrefix = 'D:\Projekte\Pandemie\LyX\';
+        kreisName       = { 'Odenwald', 'Darmstadt', 'Frankfurt', 'Gross-Gerau', 'LK-Offenbach' };
     else
-        outputDirPrefix = 'D:\VBSharedFolder\Debian\Pandemie\';
+        outputDirPrefix = 'D:\VBSharedFolder\Debian\Pandemie\'; %#ok<UNRCH>
     end
 
     % Auswertegebiet Bundesland, Hessen=6
@@ -42,17 +42,28 @@ function plotRKIData()
     end
 
     for k = 1 : length( kreisId )
+
+        kreisId( k )
+
         doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
                  kreisId( k ), bundesLandId, events )
 
         if( auto )
             % Grafiken in PDF wandeln
-            cmd   = '"C:/Program Files (x86)/LyX 2.3/bin/LyX.exe"'; %#ok<UNRCH>
+            exe   = 'D:/Projekte/LyX/build-2.3.x/LYX_INSTALLED/bin/LyX.exe';
             kreis = sprintf( '%s', kreisName{ k } );
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
-            state = system( sprintf( '%s -E %s.pdf %s.lyx', cmd, name, name ) );
+
+            cmd = sprintf( '%s -e pdf ../LyX/%s.lyx', exe, name );
+            [ state, out ] = system( cmd );
             if( state )
-                error( 'Kommando scheiterte!' )
+                error( 'Kommando \"%s\" scheiterte!', cmd )
+            end
+
+            cmd = sprintf( 'move /Y ../LyX/%s.pdf ..', name );
+            [ state, out ] = system( cmd );
+            if( state )
+                error( 'Kommando \"%s\" scheiterte!', cmd )
             end
         end
     end
