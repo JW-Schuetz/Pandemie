@@ -90,7 +90,7 @@
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -127,12 +127,12 @@ Anzahl der Kreise mit verschwindender, kleiner und hoher Inzidenz
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Testanzahlen.eps
-	scale 65
+	scale 73
 	BoundingBox 0bp 0bp 877bp 464bp
 
 \end_inset
