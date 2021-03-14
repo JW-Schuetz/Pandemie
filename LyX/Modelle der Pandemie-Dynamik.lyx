@@ -512,22 +512,11 @@ und mit der Abkürzung
 \end_layout
 
 \begin_layout Standard
-Aus der Bilanzgleichung (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Bilanz"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) folgt für die normierten Grössen 
+Es gilt wieder 
 \begin_inset Formula $S\left(t\right)+I\left(t\right)+R\left(t\right)=1$
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Subsection*
