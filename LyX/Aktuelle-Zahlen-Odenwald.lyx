@@ -1,16 +1,21 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 607
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+% Added by lyx2lyx
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\end_preamble
 \use_default_options true
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language ngerman
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -18,7 +23,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -54,6 +61,7 @@
 \justification true
 \use_refstyle 1
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -64,8 +72,8 @@
 \bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip smallskip
+\paragraph_separation indent
+\paragraph_indentation default
 \is_math_indent 0
 \math_numbering_side default
 \quotes_style german
@@ -73,12 +81,16 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \listings_params "literate={{Ã€}{{\&quot;a}}1 {Ã¶}{{\&quot;o}}1 {ÃŒ}{{\&quot;u}}1}"
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
 \end_header
 
 \begin_body
@@ -96,6 +108,7 @@ Jürgen Womser-Schütz, https://github.com/JW-Schuetz
 \begin_inset CommandInset include
 LatexCommand input
 filename "Kopf.lyx"
+literal "true"
 
 \end_inset
 
@@ -103,7 +116,7 @@ filename "Kopf.lyx"
 \end_layout
 
 \begin_layout Subsection*
-Statistik und aktuelle lokale Fälle
+Statistik und aktuelle lokale Fälle 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -223,6 +236,7 @@ Dreisatz: 1 Mio in 18 Tagen, wann 160 Mio ? In 160 * 18 = 2880 Tagen, also
 LatexCommand verbatiminput
 filename "DatumImpfende.txt"
 lstparams "tabsize=3"
+literal "true"
 
 \end_inset
 
@@ -243,6 +257,7 @@ Statistik
 LatexCommand lstinputlisting
 filename "Statistik-Odenwaldkreis.txt"
 lstparams "tabsize=3"
+literal "true"
 
 \end_inset
 
@@ -265,6 +280,7 @@ Neuinfektionen Odenwaldkreis
 LatexCommand lstinputlisting
 filename "LastCases-Odenwaldkreis.csv"
 lstparams "tabsize=14"
+literal "true"
 
 \end_inset
 
@@ -287,6 +303,7 @@ Todesfälle Odenwaldkreis
 LatexCommand lstinputlisting
 filename "LastDeaths-Odenwaldkreis.csv"
 lstparams "tabsize=14"
+literal "true"
 
 \end_inset
 
@@ -297,6 +314,7 @@ lstparams "tabsize=14"
 \begin_inset CommandInset include
 LatexCommand input
 filename "Mitte.lyx"
+literal "true"
 
 \end_inset
 
@@ -305,6 +323,8 @@ filename "Mitte.lyx"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -342,6 +362,8 @@ Neuinfektionen
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -379,6 +401,8 @@ Todesfälle
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -416,6 +440,8 @@ Neuinfektionen ab Juni, Odenwaldkreis, Altersklassen mit Einzelfällen
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -453,6 +479,8 @@ Neuinfektionen, Altersklassen
 
 \begin_layout Standard
 \begin_inset Float figure
+placement document
+alignment document
 wide false
 sideways false
 status open
@@ -492,6 +520,7 @@ Todesfälle, Altersklassen
 \begin_inset CommandInset include
 LatexCommand input
 filename "Fuss.lyx"
+literal "true"
 
 \end_inset
 
@@ -502,6 +531,7 @@ filename "Fuss.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "Literaturverzeichnis.lyx"
+literal "true"
 
 \end_inset
 
