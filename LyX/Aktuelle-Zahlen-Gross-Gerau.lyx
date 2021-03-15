@@ -221,7 +221,7 @@ Dreisatz: 1 Mio in 18 Tagen, wann 160 Mio ? In 160 * 18 = 2880 Tagen, also
 
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "DatumImpfende.txt"
+filename "D:/Projekte/Pandemie/DatumImpfende.txt"
 lstparams "tabsize=3"
 
 \end_inset
