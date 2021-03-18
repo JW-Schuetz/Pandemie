@@ -14,7 +14,7 @@ function plotRKIData()
 
     % Auswerteparameter
     auto           = 1;     % automatische Konversion in PDF-Dateien (mit LyX)
-    withTestanzahl = 1;     % nur Anzahl der Tests plotten
+    withTestanzahl = 0;     % nur Anzahl der Tests plotten
     withAge80Plus  = 0;     % Plot separate Altersklasse 80+
     saveData       = 1;     % erzeugte Grafiken/Statistik speichern
 
@@ -51,7 +51,7 @@ function plotRKIData()
 
         if( auto )
             % Grafiken in PDF wandeln
-            exe   = 'D:/Projekte/LyX/build-2.4.x/LYX_INSTALLED/bin/LyX.exe';
+            exe   = 'D:/Projekte/LyX/build-2.3.7/LYX_INSTALLED/bin/LyX.exe';
             kreis = sprintf( '%s', kreisName{ k } );
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
