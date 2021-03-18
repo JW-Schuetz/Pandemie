@@ -14,7 +14,7 @@ function plotRKIData()
 
     % Auswerteparameter
     auto           = 1;     % automatische Konversion in PDF-Dateien (mit LyX)
-    withTestanzahl = 0;     % nur Anzahl der Tests plotten
+    withTestanzahl = 1;     % nur Anzahl der Tests plotten
     withAge80Plus  = 0;     % Plot separate Altersklasse 80+
     saveData       = 1;     % erzeugte Grafiken/Statistik speichern
 
@@ -56,15 +56,17 @@ function plotRKIData()
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
             cmd = sprintf( '%s -e pdf ../LyX/%s.lyx', exe, name );
-            [ state, ~ ] = system( cmd );
+            [ state, msg ] = system( cmd );
             if( state )
-                error( 'Kommando \"%s\" scheiterte!', cmd )
+                error( 'Kommando \"%s\" scheiterte mit der Meldung: \"%s\"', ...
+                       cmd, msg )
             end
 
             cmd = sprintf( 'move /Y ../LyX/%s.pdf ..', name );
-            [ state, ~ ] = system( cmd );
+            [ state, msg ] = system( cmd );
             if( state )
-                error( 'Kommando \"%s\" scheiterte!', cmd )
+                error( 'Kommando \"%s\" scheiterte mit der Meldung: \"%s\"', ...
+                       cmd, msg )
             end
         end
     end
