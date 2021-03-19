@@ -39,6 +39,7 @@ function plotRKIData()
         % Anzahl der Tests ist kreisinvariant
         doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
                  kreisId( 1 ), bundesLandId, events ) %#ok<UNRCH>
+
         withTestanzahl = 0;
     end
 
@@ -51,7 +52,7 @@ function plotRKIData()
 
         if( auto )
             % Grafiken in PDF wandeln
-            exe   = 'D:/Projekte/LyX/build-2.3.7/LYX_INSTALLED/bin/LyX.exe -userdir C:\Users\Jürgen\AppData\Roaming\LyX2.3.7';
+            exe   = 'D:/Projekte/LyX/build-2.4.x/LYX_INSTALLED/bin/LyX.exe';
             kreis = sprintf( '%s', kreisName{ k } );
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
