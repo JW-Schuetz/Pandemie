@@ -51,7 +51,7 @@ function plotRKIData()
 
         if( auto )
             % Grafiken in PDF wandeln
-            exe   = 'D:/Projekte/LyX/build-2.3.7/LYX_INSTALLED/bin/LyX.exe';
+            exe   = 'D:/Projekte/LyX/build-2.3.7/LYX_INSTALLED/bin/LyX.exe -userdir C:\Users\Jürgen\AppData\Roaming\LyX2.3.7';
             kreis = sprintf( '%s', kreisName{ k } );
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
