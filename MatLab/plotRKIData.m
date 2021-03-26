@@ -14,7 +14,7 @@ function plotRKIData()
 
     % Auswerteparameter
     auto           = 1;     % automatische Konversion in PDF-Dateien (mit LyX)
-    withTestanzahl = 1;     % nur Anzahl der Tests plotten
+    withTestanzahl = 0;     % nur Anzahl der Tests plotten
     withAge80Plus  = 0;     % Plot separate Altersklasse 80+
     saveData       = 1;     % erzeugte Grafiken/Statistik speichern
 
