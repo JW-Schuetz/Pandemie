@@ -47,8 +47,8 @@ function plotRKIData()
 
         kreisId( k ) %#ok<NOPRT>
 
-        doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
-                 kreisId( k ), bundesLandId, events )
+        doItAll( inputFileName, outputDirPrefix, withTestanzahl, ...
+                 withAge80Plus, saveData, kreisId( k ), bundesLandId, events )
 
         if( auto )
             % Grafiken in PDF wandeln
