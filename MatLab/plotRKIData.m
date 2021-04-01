@@ -8,7 +8,7 @@ function plotRKIData()
 %       { 'Toennies-Ausbruch',      datetime( '17.06.2020' ) };
         { 'Grenzöffnungen',         datetime( '21.06.2020' ) };
         { 'Lockdown (Soft)',        datetime( '01.11.2020' ) };
-        { 'Lockdown (Hard)',        datetime( '16.12.2020' ) }
+        { 'Lockdown (Hard)',        datetime( '16.12.2020' ) };
         { '1. Lockerung Schulen',   datetime( '22.02.2021' ) }
 	};
 
