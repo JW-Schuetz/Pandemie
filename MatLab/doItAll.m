@@ -1,5 +1,5 @@
 function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
-                  kreisId, bundesLandId, events )
+                  kreisId, k, bundesLandId, events )
     % RKI-Datenbasis einlesen
 	load( inputFileName, 'datum', 'landkreisKeys', 'landkreisName', 'landkreisZeitreihen', ...
           'bundeslandName', 'bundeslandZeitreihen', 'bundesrepublikZeitreihen', 'modus', ...
@@ -8,27 +8,27 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
     Name   = 'Deutschland';
 	blName = bundeslandName( bundesLandId );
     blName = blName{ 1 };
-    lkName = landkreisName( kreisId );
+    lkName = landkreisName( kreisId( k ) );
     lkName = lkName{ 1 };
     lkName = alias( lkName );
 
     % Normierungsfaktoren (pro 100000 Einwohner)
-    [ fak, fakBL, fakLK ] = normierungsFaktoren( bundesLandId, kreisId );
+    [ fak, fakBL, fakLK ] = normierungsFaktoren( bundesLandId, kreisId( k ) );
 
     % Normierung
     neuNormiert   = bundesrepublikZeitreihen.neuInfektionen * fak;
     totNormiert   = bundesrepublikZeitreihen.todesFaelle * fak;
     neuBLNormiert = bundeslandZeitreihen.neuInfektionen( bundesLandId ) * fakBL;
     totBLNormiert = bundeslandZeitreihen.todesFaelle( bundesLandId ) * fakBL;
-    neuLKNormiert = landkreisZeitreihen.neuInfektionen( kreisId ) * fakLK;
-    totLKNormiert = landkreisZeitreihen.todesFaelle( kreisId ) * fakLK;
+    neuLKNormiert = landkreisZeitreihen.neuInfektionen( kreisId( k ) ) * fakLK;
+    totLKNormiert = landkreisZeitreihen.todesFaelle( kreisId( k ) ) * fakLK;
 
     ageNew   = bundesrepublikZeitreihen.ageNew;
     ageNewBL = bundeslandZeitreihen.ageNew( bundesLandId );
-    ageNewLK = landkreisZeitreihen.ageNew( kreisId );
+    ageNewLK = landkreisZeitreihen.ageNew( kreisId( k ) );
     ageTot   = bundesrepublikZeitreihen.ageTot;
     ageTotBL = bundeslandZeitreihen.ageTot( bundesLandId );
-    ageTotLK = landkreisZeitreihen.ageTot( kreisId );
+    ageTotLK = landkreisZeitreihen.ageTot( kreisId( k ) );
 
     neuInfektionenLK = landkreisZeitreihen.neuInfektionen;
 
@@ -85,7 +85,7 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
         figures = [ figures; { f, [ 'Neuinfektionen-Altersklassen', '-', lkName ] } ];
 
         % Darmstadt=6411, Frankfurt=6412, Gross-Gerau=6433, Odenwaldkreis=6437, Landkreis Offenbach=6438
-        switch( kreisId )
+        switch( kreisId( k ) )
             case 6437
                 step     = 50;
                 location = 'northeast';
@@ -105,11 +105,19 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
                 'northwest', 'northwest', location );
         f.WindowState = 'maximized';
         figures = [ figures; { f, [ 'Todesfälle-Altersklassen', '-', lkName ] } ];
+
+        % Impfstatistik (nur ein mal rechnen)
+        if( k == 1 )
+            titel = 'Impfstatistik';
+            f     = impfStatistik( titel );
+            f.WindowState = 'maximized';
+            figures = [ figures; { f, 'ImpfStatistik' } ];
+        end
     end
 
 	if( saveData )
          % Statistikdaten (Kreis, Land, Deutschland) schreiben
-        statistik( outputDirPrefix, kreisId, bundesLandId )
+        statistik( outputDirPrefix, kreisId( k ), bundesLandId )
 
         for n = 1 : size( figures, 1 )
             f = figures{ n, 1 };
