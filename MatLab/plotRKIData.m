@@ -38,7 +38,7 @@ function plotRKIData()
     if( withTestanzahl )
         % Anzahl der Tests ist kreisinvariant
         doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
-                 kreisId( 1 ), bundesLandId, events ) %#ok<UNRCH>
+                 kreisId, 1, bundesLandId, events ) %#ok<UNRCH>
 
         withTestanzahl = 0;
     end
@@ -53,7 +53,7 @@ function plotRKIData()
             kreis = sprintf( '%s', kreisName{ k } );
             name  = sprintf( 'Aktuelle-Zahlen-%s', kreis );
 
-            cmd = sprintf( '%s -e pdf ../LyX/%s.lyx', exe, name );
+            cmd = sprintf( '%s -e pdf2 ../LyX/%s.lyx', exe, name );
             [ state, msg ] = system( cmd );
             if( state )
                 error( 'Kommando \"%s\" scheiterte mit der Meldung: \"%s\"', ...

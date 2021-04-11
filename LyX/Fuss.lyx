@@ -160,6 +160,43 @@ Tägliche Anzahl der PCR-Testungen in Deutschland
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ImpfStatistik.eps
+	scale 50
+	BoundingBox 0bp 0bp 877bp 464bp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Abb 9"
+
+\end_inset
+
+Geschätztes Ende der Impfkampagne
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part*
 Diskussion
 \end_layout

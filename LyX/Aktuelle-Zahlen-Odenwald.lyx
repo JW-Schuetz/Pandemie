@@ -111,7 +111,7 @@ Impfstatistik
 \end_layout
 
 \begin_layout Standard
-Datum der 2.
+Geschätztes Datum der 2.
  Impfung des letzten Bürgers 
 \begin_inset Note Note
 status collapsed
@@ -232,6 +232,20 @@ lstparams "tabsize=3"
 \begin_layout Standard
 Annahmen: gleichbleibende Impfgeschwindigkeit, alle Einwohner Deutschlands
  wollen sich impfen lassen.
+\end_layout
+
+\begin_layout Standard
+Zum zeitlichen Verlauf dieses Datums siehe auch Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection*
