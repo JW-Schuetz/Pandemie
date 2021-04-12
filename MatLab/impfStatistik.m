@@ -45,6 +45,7 @@ function f = impfStatistik( titel )
         { '07.04.2021',  16253541 };
         { '08.04.2021',  17035698 };
         { '09.04.2021',  17580596 };
+        { '11.04.2021',  18231747 };
 	];
 
     t  = datetime();
@@ -71,4 +72,9 @@ function f = impfStatistik( titel )
     ylabel( 'Geschätztes Datum Impfende', 'FontSize', 12, 'FontWeight', 'normal' )
 
     plot( t, ie, 'Color', 'k', 'Linewidth', 2 )
+
+% 	[ az1, bz1 ] = Regression( std, zStand1 );
+% 
+% 	plot( [ dat( 1 ), dat( end ) ], [ az1*std(1) + bz1, az1*std( end ) + bz1 ], ...
+%             'g', 'Marker', 'o' )
 end
