@@ -1,7 +1,6 @@
-function datum = impfEnde( impfAnzahl, impfDatum, writeIt )
-    impfStart = datetime( '27.12.2020' );
-    impfTage  = days( impfDatum - impfStart );
-    datum     = impfStart + 2 * einwohner / impfAnzahl * impfTage;
+function datum = impfEnde( impfAnzahl, impfDatum, impfStart, writeIt )
+    impfTage = days( impfDatum - impfStart ) + 1;
+    datum    = impfStart + 2 * einwohner / impfAnzahl * impfTage;
 
     if( writeIt )
         d = day( datum );

@@ -8,7 +8,8 @@
 
     % Zielverzeichnis für die Tabellen, Quelldateiname
     srcDir        = '..\';
-    dstDir        = '..\Tabellen\';
+    dstTabDir     = '..\Tabellen\';
+    dstImmuDir    = '..\Impfquoten\';
     inputDataFile = 'RKI_COVID19.csv';
     outputFile    = 'rkiMap.mat';
 
@@ -19,17 +20,14 @@
     startDate = datetime( '01.01.2020' );
     stichTag  = datetime( '01.06.2020' );
 
-%     % Datei 'Impfquoten.xlsx' (mit Curl) herunterladen und auslesen
-%     inputImmuFile = 'Impfquoten.xlsx';
-%     infile = [ srcDir, inputImmuFile ];
-%     immu   = generateImmuTab( infile, dstDir );
-%     if( ~isempty( immu ) )
-%         immu
-%     end
+    % Datei 'Impfquotenmonitoring.xlsx' (mit Curl) herunterladen und auslesen
+    inputImmuFile = 'Impfquotenmonitoring.xlsx';
+    infile = [ srcDir, 'Impfquoten\', inputImmuFile ];
+    generateImmuData( infile, dstImmuDir );
 
 	% Datei 'RKI_COVID19.csv' (mit curl) herunterladen und auslesen
     infile = [ srcDir, inputDataFile ];
-    tab    = generateRKITab( infile, dstDir, version, idpos, 'yyyy/MM/dd HH:mm:ss' );
+    tab    = generateRKITab( infile, dstTabDir, version, idpos, 'yyyy/MM/dd HH:mm:ss' );
 
     if( ~isempty( tab ) )
         % Datumsarray ohne Lücken ab startDate und bis zum Vortag des Datenstands-Datums

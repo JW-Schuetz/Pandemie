@@ -42,6 +42,14 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
         f = plotTestanzahl( titel, 250000, testAnzahl );
         figures = [ figures; { f, 'Testanzahlen' } ];
     else
+        % Impfstatistik (nur ein mal rechnen)
+        if( k == 1 )
+            titel = 'Impfstatistik';
+            f     = impfStatistik( titel );
+            f.WindowState = 'maximized';
+            figures = [ figures; { f, 'ImpfStatistik' } ];
+        end
+
         % Plot Datenstand
         titel = 'Neuinfektionen/Todesfälle Datenstandsdatum';
         f = plotDatenstand( titel, datum, fak, Name, events );
@@ -107,14 +115,6 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
                 'northwest', 'northwest', location );
         f.WindowState = 'maximized';
         figures = [ figures; { f, [ 'Todesfälle-Altersklassen', '-', lkName ] } ];
-
-        % Impfstatistik (nur ein mal rechnen)
-        if( k == 1 )
-            titel = 'Impfstatistik';
-            f     = impfStatistik( titel );
-            f.WindowState = 'maximized';
-            figures = [ figures; { f, 'ImpfStatistik' } ];
-        end
     end
 
 	if( saveData )

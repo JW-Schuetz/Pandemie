@@ -1,60 +1,34 @@
 function f = impfStatistik( titel )
-    daten = [ ...
-        { '12.02.2021',   3967246 };
-        { '14.02.2021',   4146348 };
-        { '16.02.2021',   4419971 };
-        { '17.02.2021',   4572420 };
-        { '18.02.2021',   4719900 };
-        { '19.02.2021',   4869641 };
-        { '21.02.2021',   5068829 };
-        { '22.02.2021',   5220336 };
-        { '23.02.2021',   5373222 };
-        { '24.02.2021',   5544145 };
-        { '25.02.2021',   5730949 };
-        { '26.02.2021',   5910537 };
-        { '28.02.2021',   6174362 };
-        { '01.03.2021',   6394364 };
-        { '02.03.2021',   6604578 };
-        { '03.03.2021',   6813173 };
-        { '04.03.2021',   7082562 };
-        { '05.03.2021',   7326098 };
-        { '07.03.2021',   7654623 };
-        { '08.03.2021',   7897100 };
-        { '09.03.2021',   8161238 };
-        { '10.03.2021',   8431264 };
-        { '11.03.2021',   8716654 };
-        { '12.03.2021',   8863270 };
-        { '14.03.2021',   9399110 };
-        { '16.03.2021',   9853966 };
-        { '17.03.2021',  10067995 };
-        { '17.03.2021',  10267629 };
-        { '19.03.2021',  10479936 };
-        { '21.03.2021',  10868372 };
-        { '22.03.2021',  11115062 };
-        { '23.03.2021',  11454526 };
-        { '24.03.2021',  11753895 };
-        { '25.03.2021',  12047251 };
-        { '26.03.2021',  12370419 };
-        { '28.03.2021',  12879839 };
-        { '29.03.2021',  13177652 };
-        { '30.03.2021',  13488151 };
-        { '31.03.2021',  13779636 };
-        { '02.04.2021',  14381068 };
-        { '05.04.2021',  15082044 };
-        { '06.04.2021',  15434496 };
-        { '07.04.2021',  16253541 };
-        { '08.04.2021',  17035698 };
-        { '09.04.2021',  17580596 };
-        { '11.04.2021',  18231747 };
-	];
+	load( 'ImpfStatistik.mat', 'datum', 'gesamtimpfungen' )
 
-    t  = datetime();
-    ie = datetime();
+    statistikStart = datetime( '01.02.2021' );
 
-    for n = 1 : length( daten )
-        t( n )  = daten{ n,  1 };
-        ie( n ) = impfEnde( daten{ n,  2 },  datetime( t( n ) ), false );
+    endDat = datetime();
+    dat    = datetime();
+    cnt    = 1;
+
+    N = length( datum );
+    for n = 1 : N
+        if( datum( n ) >= statistikStart )
+            dat( cnt )    = datum( n );
+            endDat( cnt ) = impfEnde( sum( gesamtimpfungen( 1 : n ) ), ...
+                                datum( n ), datum( 1 ), false );
+            cnt = cnt + 1;
+        end
     end
+
+    % in Stunden umrechnen für die Regression
+    N    = length( dat );
+    stdX = zeros( N, 1 );
+    stdY = zeros( N, 1 );
+    for n = 2 : N
+        stdX( n ) = hours( dat( n ) - dat( 1 ) );
+        stdY( n ) = hours( endDat( n ) - endDat( 1 ) );
+    end
+
+    % Datei "DatumImpfende.txt" aktualisieren
+    impfEnde( sum( gesamtimpfungen( 1 : end ) ), datum( end ), ...
+                datum( 1 ), true );
 
 	if( nargin ~= 0 )
         f = figure( 'Name', titel );
@@ -71,10 +45,12 @@ function f = impfStatistik( titel )
 	xlabel( 'Datum', 'FontSize', 12, 'FontWeight', 'normal' )
     ylabel( 'Geschätztes Datum Impfende', 'FontSize', 12, 'FontWeight', 'normal' )
 
-    plot( t, ie, 'Color', 'k', 'Linewidth', 2 )
+    plot( dat, endDat, 'Color', 'k', 'Linewidth', 2 )
+    plot( datetime( 'today' ), datetime( 'today' ), 'Color', 'r', ...
+        'Marker', 'o', 'MarkerFaceColor', 'r' )
 
-% 	[ az1, bz1 ] = Regression( std, zStand1 );
-% 
-% 	plot( [ dat( 1 ), dat( end ) ], [ az1*std(1) + bz1, az1*std( end ) + bz1 ], ...
+    % Regression rechnen und plotten
+ 	[ ax, ay ] = Regression( stdX, stdY );
+% 	plot( [ dat( 1 ), dat( end ) ], [ ax*stdX(1) + ay, ax*stdY( end ) + ay ], ...
 %             'g', 'Marker', 'o' )
 end
