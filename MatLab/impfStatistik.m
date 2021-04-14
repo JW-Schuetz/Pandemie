@@ -21,9 +21,9 @@ function f = impfStatistik( titel )
     N    = length( dat );
     stdX = zeros( N, 1 );
     stdY = zeros( N, 1 );
-    for n = 2 : N
+    for n = 1 : N
         stdX( n ) = hours( dat( n ) - dat( 1 ) );
-        stdY( n ) = hours( endDat( n ) - endDat( 1 ) );
+        stdY( n ) = hours( endDat( n ) - dat( 1 ) );
     end
 
     % Datei "DatumImpfende.txt" aktualisieren
@@ -31,10 +31,14 @@ function f = impfStatistik( titel )
                 datum( 1 ), true );
 
 	if( nargin ~= 0 )
-        f = figure( 'Name', titel );
+        f = plotIt( titel, dat, endDat, stdX, stdY );
 	else
-        f = figure( 'Name', 'Impfstatistik' );
+        f = plotIt( 'Impfstatistik', dat, endDat, stdX, stdY );
 	end
+end
+
+function f = plotIt( title, dat, endDat, stdX, stdY )
+	f = figure( 'Name', title );
 
 	hold on
     grid on
@@ -46,11 +50,12 @@ function f = impfStatistik( titel )
     ylabel( 'Geschätztes Datum Impfende', 'FontSize', 12, 'FontWeight', 'normal' )
 
     plot( dat, endDat, 'Color', 'k', 'Linewidth', 2 )
-    plot( datetime( 'today' ), datetime( 'today' ), 'Color', 'r', ...
-        'Marker', 'o', 'MarkerFaceColor', 'r' )
+%     plot( datetime( 'today' ), datetime( 'today' ), 'Color', 'r', ...
+%         'Marker', 'o', 'MarkerFaceColor', 'r' )
 
-    % Regression rechnen und plotten
- 	[ ax, ay ] = Regression( stdX, stdY );
-% 	plot( [ dat( 1 ), dat( end ) ], [ ax*stdX(1) + ay, ax*stdY( end ) + ay ], ...
-%             'g', 'Marker', 'o' )
+    % Regressionsgerade rechnen: r = a*x + b
+ 	[ a, b ] = Regression( stdX, stdY );
+
+% 	plot( [ dat( 1 ), dat( end ) ], [ dat( 1 ) + hours( a * stdX( 1 ) ), ...
+%         dat( 1 ) + hours( b * stdX( end ) ) ], 'g', 'Marker', 'o' )
 end
