@@ -334,7 +334,7 @@ function [ kind, erwachsen, alt, greis ] = calcAltersklassen( ages )
     end
 end
 
-function f = plotTestanzahl( titel, yMax, testAnzahl ) %#ok<DEFNU>
+function f = plotTestanzahl( titel, yMax, testAnzahl )
     f = figure( 'Name', titel );
 
 	hold on

@@ -221,7 +221,7 @@ Dreisatz: 1 Mio in 18 Tagen, wann 160 Mio ? In 160 * 18 = 2880 Tagen, also
 
 \begin_inset CommandInset include
 LatexCommand verbatiminput
-filename "D:/Projekte/Pandemie/DatumImpfende.txt"
+filename "D:/Projekte/Pandemie/DatumImpfende1.txt"
 lstparams "tabsize=3"
 
 \end_inset
@@ -232,6 +232,33 @@ lstparams "tabsize=3"
 \begin_layout Standard
 Annahmen: gleichbleibende Impfgeschwindigkeit, alle Einwohner Deutschlands
  wollen sich impfen lassen.
+\end_layout
+
+\begin_layout Standard
+Nimmt man (unrealistischerweise) an, dass auch die Steigerungsrate Impfgeschwind
+igkeit konstant ist, kann man das Datum der 2.
+ Impfung schätzen (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) und kommt auf das Datum
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "D:/Projekte/Pandemie/DatumImpfende2.txt"
+lstparams "tabsize=3"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
