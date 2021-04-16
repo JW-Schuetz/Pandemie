@@ -77,6 +77,7 @@ function f = plotIt( title, dat, endDat, r1, r2 )
     plot( r1( 2 ), r2( 2 ), 'Color', 'r', ...
           'Marker', 'o', 'MarkerFaceColor', 'r' )
 
-	legend( { 'Datum Impfende', 'Regressionsgerade',  ...
-        datestr( r1( 2 ),'dd-mm-yyyy' ) }, 'Location', 'northeast' )
+    iend = [ 'Impfende: ', datestr( r1( 2 ),'dd-mm-yyyy' ) ];
+	legend( { 'Datum Impfende', 'Regressionsgerade', iend }, ...
+        'Location', 'northeast' )
 end
