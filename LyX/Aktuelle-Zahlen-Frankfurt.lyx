@@ -111,7 +111,9 @@ Impfstatistik
 \end_layout
 
 \begin_layout Standard
-Geschätztes Datum der 2.
+Nimmt man an, dass alle 83 Millionen Einwohner Deutschlands geimpft werden
+ sollen und dass die mittlere Impfgeschwindigkeit konstant ist, kommt man
+ auf das geschätzte Datum der 2.
  Impfung des letzten Bürgers 
 \begin_inset Note Note
 status collapsed
@@ -230,14 +232,9 @@ lstparams "tabsize=3"
 \end_layout
 
 \begin_layout Standard
-Annahmen: gleichbleibende Impfgeschwindigkeit, alle Einwohner Deutschlands
- wollen sich impfen lassen.
-\end_layout
-
-\begin_layout Standard
-Nimmt man (unrealistischerweise) an, dass auch die Steigerungsrate Impfgeschwind
-igkeit konstant ist, kann man das Datum der 2.
- Impfung schätzen (siehe Abbildung 
+Nimmt man (unrealistischerweise!) zusätzlich an, dass auch die mittlere
+ Steigerungsrate der Impfgeschwindigkeit konstant ist, kommt man auf das
+ geschätzte Datum (siehe Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Abb 9"
@@ -247,7 +244,7 @@ noprefix "false"
 
 \end_inset
 
-) und kommt auf das Datum
+)
 \end_layout
 
 \begin_layout Standard
