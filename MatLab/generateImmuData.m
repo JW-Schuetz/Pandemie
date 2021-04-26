@@ -25,6 +25,6 @@ function downloadImmuData( infile )
     download( url, infile );
 
     if( isfile( infile ) == 0 )
-        error( 'Fehler: Download fehlgeschlagen!' )
+        error( 'Fehler: Download der Impfquoten fehlgeschlagen!' )
     end
 end

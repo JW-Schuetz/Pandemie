@@ -35,14 +35,6 @@ function plotRKIData()
 	% Odenwaldkreis=6437, Darmstadt=6411, Frankfurt=6412, Gross-Gerau=6433, LK Offenbach=6438
     kreisId = [ 6437, 6411, 6412, 6433, 6438 ];
 
-    if( withTestanzahl )
-        % Anzahl der Tests ist kreisinvariant
-        doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus, saveData, ...
-                 kreisId, 1, bundesLandId, events )
-
-        withTestanzahl = 0;
-    end
-
     for k = 1 : length( kreisId )
         doItAll( inputFileName, outputDirPrefix, withTestanzahl, ...
                  withAge80Plus, saveData, kreisId, k, bundesLandId, events )

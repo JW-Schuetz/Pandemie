@@ -36,86 +36,86 @@ function doItAll( inputFileName, outputDirPrefix, withTestanzahl, withAge80Plus,
 
 	figures = {};
 
-    if( withTestanzahl )
-        % Startdatum, Datum des ersten Datensatzes
-        titel = 'Tägliche Testanzahl';
-        f = plotTestanzahl( titel, 250000, testAnzahl );
-        figures = [ figures; { f, 'Testanzahlen' } ];
-    else
-        % Impfstatistik (nur ein mal rechnen)
-        if( k == 1 )
-            titel = 'Impfstatistik';
-            f     = impfStatistik( titel );
-            f.WindowState = 'maximized';
-            figures = [ figures; { f, 'ImpfStatistik' } ];
+    % Impfstatistik (nur ein mal rechnen)
+    if( k == 1 )
+        if( withTestanzahl )
+            % Startdatum, Datum des ersten Datensatzes
+            titel = 'Tägliche Testanzahl';
+            f = plotTestanzahl( titel, 250000, testAnzahl );
+            figures = [ figures; { f, 'Testanzahlen' } ];
         end
 
-        % Plot Datenstand
-        titel = 'Neuinfektionen/Todesfälle Datenstandsdatum';
-        f = plotDatenstand( titel, datum, fak, Name, events );
+        titel = 'Impfstatistik';
+        f     = impfStatistik( titel );
         f.WindowState = 'maximized';
-        figures = [ figures; { f, 'Neu-Tot-Datenstand-Einwohneranzahl' } ];
-
-        % Plots für Landkreis, Bundesland, Deutschland
-        titel = 'Tägliche NeuInfektionen';
-        f = plotData( titel, datum, neuNormiert, neuBLNormiert, neuLKNormiert, ...
-            '[1.0 0.0 0.0]', '[1.0 0.3 0.3]', '[1.0 0.7 0.7]', Name, blName, lkName, ...
-            events, [], modus );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, [ 'Neuinfektionen-Einwohneranzahl', '-', lkName ] } ];
-
-        % Plots für Landkreis, Bundesland, Deutschland
-        titel = 'Tägliche Todesfälle';
-        f = plotData( titel, datum, totNormiert, totBLNormiert, totLKNormiert, ...
-            '[0.0 0.0 0.0]', '[0.3 0.3 0.3]', '[0.7 0.7 0.7]', Name, blName, ...
-            lkName, events, stichTag, modus );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, [ 'Todesfälle-Einwohneranzahl', '-', lkName ] } ];
-
-        % Inzidenzen (0, klein, gross)
-        titel = 'Inzidenzen';
-        f = plotInzidenzen( titel, events, '[0.0 0.7 0.0]', '[0.0 0.3 0.0]', 'r', datum, ...
-                landkreisKeys, neuInfektionenLK, 35, 50, modus );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, 'LandkreiseNeuinfektionen' } ];
-
-        titel = 'Tägliche Neuinfektionen Landkreis';
-        f = plotAgesLK( titel, datum, events, lkName, ageNewLK, fakLK, stichTag, modus, ...
-                withAge80Plus );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, [ 'NeuinfektionenLandkreis-Altersklassen', '-', lkName ] } ];
-
-        % Ages Neuinfektionen Deutschland, Bundesland, Landkreis
-        titel  = 'Tägliche Neuinfektionen';
-        colors = [ '[ 0.0 0.8 0.0 ]'; '[ 0.0 0.5 0.0 ]'; '[ 0.0 0.3 0.0 ]'; '[ 0.0 0.1 0.0 ]' ];
-        f = plotAgesTiled( titel, datum, events, lkName, blName, Name, ageNewLK, ...
-                ageNewBL, ageNew, fakLK, fakBL, fak, 50, colors, modus, withAge80Plus, ...
-                'northwest', 'northwest', 'northwest' );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, [ 'Neuinfektionen-Altersklassen', '-', lkName ] } ];
-
-        % Darmstadt=6411, Frankfurt=6412, Gross-Gerau=6433, Odenwaldkreis=6437, Landkreis Offenbach=6438
-        switch( kreis )
-            case 6437
-                step     = 50;
-                location = 'northeast';
-            case { 6412, 6433 }
-                step     = 10;
-                location = 'northwest';
-            otherwise
-                step     = 20;
-                location = 'northwest';
-        end
-
-        % Ages Todesfälle Deutschland, Bundesland, Landkreis
-        titel  = 'Tägliche Todesfälle';
-        colors = [ '[0.8 0.8 0.8]'; '[0.4 0.4 0.4]'; '[0.2 0.2 0.2]'; '[0.0 0.0 0.0]' ];
-        f = plotAgesTiled( titel, datum, events, lkName, blName, Name, ageTotLK, ...
-                ageTotBL, ageTot, fakLK, fakBL, fak, step, colors, modus, withAge80Plus, ...
-                'northwest', 'northwest', location );
-        f.WindowState = 'maximized';
-        figures = [ figures; { f, [ 'Todesfälle-Altersklassen', '-', lkName ] } ];
+        figures = [ figures; { f, 'ImpfStatistik' } ];
     end
+
+    % Plot Datenstand
+    titel = 'Neuinfektionen/Todesfälle Datenstandsdatum';
+    f = plotDatenstand( titel, datum, fak, Name, events );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, 'Neu-Tot-Datenstand-Einwohneranzahl' } ];
+
+    % Plots für Landkreis, Bundesland, Deutschland
+    titel = 'Tägliche NeuInfektionen';
+    f = plotData( titel, datum, neuNormiert, neuBLNormiert, neuLKNormiert, ...
+        '[1.0 0.0 0.0]', '[1.0 0.3 0.3]', '[1.0 0.7 0.7]', Name, blName, lkName, ...
+        events, [], modus );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, [ 'Neuinfektionen-Einwohneranzahl', '-', lkName ] } ];
+
+    % Plots für Landkreis, Bundesland, Deutschland
+    titel = 'Tägliche Todesfälle';
+    f = plotData( titel, datum, totNormiert, totBLNormiert, totLKNormiert, ...
+        '[0.0 0.0 0.0]', '[0.3 0.3 0.3]', '[0.7 0.7 0.7]', Name, blName, ...
+        lkName, events, stichTag, modus );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, [ 'Todesfälle-Einwohneranzahl', '-', lkName ] } ];
+
+    % Inzidenzen (0, klein, gross)
+    titel = 'Inzidenzen';
+    f = plotInzidenzen( titel, events, '[0.0 0.7 0.0]', '[0.0 0.3 0.0]', 'r', datum, ...
+            landkreisKeys, neuInfektionenLK, 35, 50, modus );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, 'LandkreiseNeuinfektionen' } ];
+
+    titel = 'Tägliche Neuinfektionen Landkreis';
+    f = plotAgesLK( titel, datum, events, lkName, ageNewLK, fakLK, stichTag, modus, ...
+            withAge80Plus );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, [ 'NeuinfektionenLandkreis-Altersklassen', '-', lkName ] } ];
+
+    % Ages Neuinfektionen Deutschland, Bundesland, Landkreis
+    titel  = 'Tägliche Neuinfektionen';
+    colors = [ '[ 0.0 0.8 0.0 ]'; '[ 0.0 0.5 0.0 ]'; '[ 0.0 0.3 0.0 ]'; '[ 0.0 0.1 0.0 ]' ];
+    f = plotAgesTiled( titel, datum, events, lkName, blName, Name, ageNewLK, ...
+            ageNewBL, ageNew, fakLK, fakBL, fak, 50, colors, modus, withAge80Plus, ...
+            'northwest', 'northwest', 'northwest' );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, [ 'Neuinfektionen-Altersklassen', '-', lkName ] } ];
+
+    % Darmstadt=6411, Frankfurt=6412, Gross-Gerau=6433, Odenwaldkreis=6437, Landkreis Offenbach=6438
+    switch( kreis )
+        case 6437
+            step     = 50;
+            location = 'northeast';
+        case { 6412, 6433 }
+            step     = 10;
+            location = 'northwest';
+        otherwise
+            step     = 20;
+            location = 'northwest';
+    end
+
+    % Ages Todesfälle Deutschland, Bundesland, Landkreis
+    titel  = 'Tägliche Todesfälle';
+    colors = [ '[0.8 0.8 0.8]'; '[0.4 0.4 0.4]'; '[0.2 0.2 0.2]'; '[0.0 0.0 0.0]' ];
+    f = plotAgesTiled( titel, datum, events, lkName, blName, Name, ageTotLK, ...
+            ageTotBL, ageTot, fakLK, fakBL, fak, step, colors, modus, withAge80Plus, ...
+            'northwest', 'northwest', location );
+    f.WindowState = 'maximized';
+    figures = [ figures; { f, [ 'Todesfälle-Altersklassen', '-', lkName ] } ];
 
 	if( saveData )
          % Statistikdaten (Kreis, Land, Deutschland) schreiben

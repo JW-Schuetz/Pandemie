@@ -21,7 +21,7 @@ function newTab = generateRKITab( fileName, dstDir, version, idpos, inputFormat 
             end
         end
     catch
-        % "table.mat" ist nicht vorhanden oder unleserlich
+        % "table.mat" ist nicht vorhanden oder kann nicht gelesen werden
         newTab = doIt( tab, fileName, dstDir, version, inputFormat, idpos, false );
     end
 end
@@ -53,6 +53,6 @@ function downloadRKIData( infile )
     download( url, infile );
 
     if( isfile( infile ) == 0 )
-        error( 'Fehler: Download fehlgeschlagen!' )
+        error( 'Fehler: Download der Fallzahlen fehlgeschlagen!' )
     end
 end
