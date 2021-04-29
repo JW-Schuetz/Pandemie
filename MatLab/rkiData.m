@@ -2,6 +2,8 @@
     clc
     clear
 
+    NET.addAssembly( 'D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.dll' );
+
     version = 0; % 0: aktuell, 1: historisch
     idpos   = 0; % 0: aktuell, ~0: historisch, 4: mit Hash
     modus   = 0; % modus=0: Meldedatum, modus=1: Referenzdatum

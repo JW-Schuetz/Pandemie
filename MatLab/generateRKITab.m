@@ -30,6 +30,8 @@ function newTab = doIt( tab, fileName, dstDir, version, inputFormat, idpos, debu
     % Datei 'RKI_COVID19.csv' (mit curl) herunterladen
     downloadRKIData( fileName )
 
+%     datenstand = PreProcess.PreProcess.PreProcessFile( fileName );
+
     % Datei 'RKI_COVID19.csv' lesen
     newTab = readRKIRawData( fileName, dstDir, version, inputFormat, idpos, debug );
 
