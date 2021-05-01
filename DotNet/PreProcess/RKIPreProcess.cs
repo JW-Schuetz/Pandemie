@@ -4,63 +4,56 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Globalization;
 
-namespace PreProcess
+namespace RKI
 {
     public class RKIPreProcess
     {
-        private string tmpName;
         private readonly string fileName;
+        private readonly string hashedName;
 
-        public RKIPreProcess(string file)
+        public RKIPreProcess(string file)   // constructor
         {
             fileName = file;
 
-            if (!File.Exists(fileName)) return (ret);
+            if (!File.Exists(fileName))
+                throw new ArgumentOutOfRangeException("fileName", "File don't exist.");
 
             int ndx = fileName.LastIndexOf('.');
-            tmpName = fileName.Remove(ndx) + "_tmp" + fileName.Substring(ndx);
+            hashedName = fileName.Remove(ndx) + "_Hashed" + fileName.Substring(ndx);
         }
 
-        public static void MoveFile()
+        public void RemoveFile()  // originale csv-Datei löschen
         {
-            // originale csv-Datei löschen und der neuen den alten Namen geben
-            Directory.Delete(fileName, false);
-            Directory.Move(tmpName, fileName);
+            File.Delete(fileName);
         }
 
-        public static string PreProcessFile()
+        public string PreProcessFile()  // File prozessieren
         {
-            string ret = "";
-
-
-            int cnt;
             string s, w;
-            string hashString;
+            bool doit = true;
             string datenstand = "";
 
-            using (StreamWriter sw = new StreamWriter(tmpName))
+            using (StreamReader sr = File.OpenText(fileName))
             {
-                using (SHA256 sha256 = SHA256.Create())
+                using (StreamWriter sw = new StreamWriter(hashedName))
                 {
-                    using (StreamReader sr = File.OpenText(fileName))
+                    using (SHA256 sha256 = SHA256.Create())
                     {
                         // Header-Zeile lesen
                         sr.ReadLine();
-
-                        cnt = 0;
 
                         // ... und jetzt den Rest
                         while ((s = sr.ReadLine()) != null)
                         {
                             var splitted = s.Split(',');
 
-                            cnt += 1;
-
-                            if (cnt == 1)   // den Datenstand nur 1 mal berechnen
+                            if (doit)
                             {
                                 datenstand = splitted[10];
                                 var sp = datenstand.Split('"');
                                 datenstand = sp[1];
+
+                                doit = false;   // den Datenstand nur 1 mal bestimmen
                             }
 
                             // FID,IdBundesland,Bundesland,Landkreis,Altersgruppe,Geschlecht,AnzahlFall,AnzahlTodesfall,Meldedatum,IdLandkreis,
@@ -89,12 +82,9 @@ namespace PreProcess
                             for (int i = 0; i < hash.Length; i++)
                                 sBuilder.Append(hash[i].ToString("x2"));
 
-                            hashString = sBuilder.ToString();
-
-                            w = hashString + "," + s;
+                            w = sBuilder.ToString() + "," + s;
                             sw.WriteLine(w);
                         }
-
                         return (datenstand);
                     }
                 }
