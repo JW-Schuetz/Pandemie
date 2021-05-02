@@ -1,4 +1,5 @@
-function tab = readRKIRawData( infile, dstdir, version, inputFormat, idpos, debug )
+function tab = readRKIRawData( infile, dstdir, version, inputFormat, ...
+                    idpos, debug, datenstand )
 % dstdir:       Zielverzeichnis
 % version:      0 aktuell, 1 historisch
 % inputFormat:  ZeitFormat
@@ -66,7 +67,7 @@ function tab = readRKIRawData( infile, dstdir, version, inputFormat, idpos, debu
                   'datetime', 'logical', 'uint32', 'logical', ...
                   'categorical' ...
                 };
-    selected4 = { 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', 'Geschlecht', ...
+    selected4 = { 'Hash', 'BundeslandId', 'Bundesland', 'Landkreis', 'Altersgruppe', 'Geschlecht', ...
                   'Fallanzahl', 'TodesfallAnzahl', 'Meldedatum', 'LandkreisId', ...
                   'NeuerFall', 'NeuerTodesfall' ...
                 };
@@ -124,11 +125,20 @@ function tab = readRKIRawData( infile, dstdir, version, inputFormat, idpos, debu
     tab = readtable( infile, opts );
 
     % Datenstand extrahieren zur weiteren Verwendung
-    datenstand  = tab.Datenstand;
-    uDatenstand = unique( datenstand );
-    if( size( uDatenstand, 1 ) ~= 1 )
-        error( 'Fehler: Datenstand ist innerhalb des Datensatzes nicht einheitlich' )
-    end
+	switch idpos
+        case 4
+            uDatenstand = datenstand;
+
+        otherwise
+            datenstand  = tab.Datenstand;
+            uDatenstand = unique( datenstand );
+            if( size( uDatenstand, 1 ) ~= 1 )
+                error( 'Fehler: Datenstand ist innerhalb des Datensatzes nicht einheitlich' )
+            end
+
+            % Datenstand wird in der Tabelle nicht mehr benötigt
+            tab.Datenstand = [];
+	end
 
     switch version
         case 0
@@ -138,10 +148,6 @@ function tab = readRKIRawData( infile, dstdir, version, inputFormat, idpos, debu
         otherwise
             datenstand = datetime( uDatenstand{ 1 }, 'InputFormat', inputFormat );
     end
-
-    % Datenstand wird in der Tabelle nicht mehr benötigt, ebenso die beiden
-    % Variablen 
-    tab.Datenstand = [];
 
     % Datenstand separat ablegen
     tab = { tab, datenstand };

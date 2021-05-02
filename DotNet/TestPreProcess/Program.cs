@@ -9,7 +9,7 @@ namespace TestPreProcess
         static void Main( string[] args )
         {
             //string fileName = "D:\\Projekte\\Pandemie\\RKI_COVID19.csv";
-            string fileName = "..\\..\\..\\..\\RKI_COVID19.csv";
+            string fileName = "..\\..\\..\\..\\RKI_COVID19_01.05.csv";
             RKIPreProcess ret = new RKIPreProcess(fileName);
             string datenstand = ret.PreProcessFile();
             ret.RemoveFile();

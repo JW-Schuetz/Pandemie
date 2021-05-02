@@ -30,10 +30,25 @@ function newTab = doIt( tab, fileName, dstDir, version, inputFormat, idpos, debu
     % Datei 'RKI_COVID19.csv' (mit curl) herunterladen
     downloadRKIData( fileName )
 
-%     datenstand = PreProcess.PreProcess.PreProcessFile( fileName );
+    switch idpos
+        case 4
+            % Assembly meines Präprozessors laden
+            assembly = NET.addAssembly( 'D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.dll' );
+
+            % Klasse RKI konstruieren
+            rki = RKI.RKIPreProcess(fileName);
+            % CSV-Datei mit Hash versehen -> RKI_COVID19_Hashed.csv
+            datenstand = rki.PreProcessFile;
+            % Umbenennen: RKI_COVID19_Hashed.csv -> RKI_COVID19.csv
+            rki.RemoveFile;
+
+        otherwise
+                datenstand = '';
+    end
 
     % Datei 'RKI_COVID19.csv' lesen
-    newTab = readRKIRawData( fileName, dstDir, version, inputFormat, idpos, debug );
+    newTab = readRKIRawData( fileName, dstDir, version, inputFormat, ...
+                idpos, debug, datenstand );
 
     % sind neue Datensätze vorhanden?
     if( ~isempty( tab ) )

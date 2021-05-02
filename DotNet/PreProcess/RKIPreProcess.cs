@@ -22,9 +22,10 @@ namespace RKI
             hashedName = fileName.Remove(ndx) + "_Hashed" + fileName.Substring(ndx);
         }
 
-        public void RemoveFile()  // originale csv-Datei löschen
+        public void RemoveFile()  // csv-Datei "hashed" umbenennen
         {
             File.Delete(fileName);
+            File.Move(hashedName, fileName);
         }
 
         public string PreProcessFile()  // File prozessieren
