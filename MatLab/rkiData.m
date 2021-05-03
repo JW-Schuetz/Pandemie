@@ -3,7 +3,7 @@
     clear
 
     version = 0; % 0: aktuell, 1: historisch
-    idpos   = 0; % 0: aktuell, ~0: historisch, 4: mit Hash
+    idpos   = 4; % 0: aktuell, ~0: historisch, 4: mit Hash
     modus   = 0; % modus=0: Meldedatum, modus=1: Referenzdatum
 
     % Zielverzeichnis für die Tabellen, Quelldateiname

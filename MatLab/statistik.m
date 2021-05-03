@@ -65,6 +65,7 @@ function writeTable( tab, fileName, text )
 
 	if( size( tab, 1 ) ~= 0 )
         % Abspecken der Tabelle
+        tab.Hash                 = [];
         tab.BundeslandId         = [];
         tab.Bundesland           = [];
         tab.Landkreis            = [];

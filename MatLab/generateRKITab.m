@@ -37,10 +37,12 @@ function newTab = doIt( tab, fileName, dstDir, version, inputFormat, idpos, debu
 
             % Klasse RKI konstruieren
             rki = RKI.RKIPreProcess(fileName);
+
             % csv-Datei mit Hash versehen -> RKI_COVID19_Hashed.csv
-            datenstand = rki.PreProcessFile;
+            datenstand = char( rki.PreProcessFile );
+
             % "Hashed" csv-Dateinamen holen
-            fileName = rki.HashedName;
+            fileName = char( rki.HashedName );
 
         otherwise
             datenstand = '';

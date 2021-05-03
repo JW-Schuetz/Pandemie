@@ -84,7 +84,7 @@ namespace RKI
                             {
                                 datenstand = splitted[10];
                                 var sp = datenstand.Split('"');
-                                datenstand = sp[1];
+                                datenstand = sp[1] + ", 00:00";
 
                                 doit = false;   // den Datenstand nur 1 mal bestimmen
                             }

@@ -128,7 +128,7 @@ function tab = readRKIRawData( infile, dstdir, version, inputFormat, ...
     % Datenstand extrahieren zur weiteren Verwendung
 	switch idpos
         case 4
-            uDatenstand = datenstand;
+            uDatenstand = { datenstand };
 
         otherwise
             datenstand  = tab.Datenstand;
@@ -143,8 +143,8 @@ function tab = readRKIRawData( infile, dstdir, version, inputFormat, ...
 
     switch version
         case 0
-            datenstand = datetime( strtok( uDatenstand{ 1 }, 'U' ), 'InputFormat', ...
-                'dd.MM.yyyy, hh:mm' );
+            fmt = 'dd.MM.yyyy, hh:mm';
+            datenstand = datetime( strtok( uDatenstand{ 1 }, 'U' ), 'InputFormat', fmt );
 
         otherwise
             datenstand = datetime( uDatenstand{ 1 }, 'InputFormat', inputFormat );
