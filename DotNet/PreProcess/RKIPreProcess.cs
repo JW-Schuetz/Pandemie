@@ -8,8 +8,8 @@ namespace RKI
 {
     public class RKIPreProcess
     {
-        private readonly string fileName;
-        private readonly string hashedName;
+        private readonly string fileName;       // Original csv-Name
+        private readonly string hashedName;     // "Hashed" csv-Name
 
         public RKIPreProcess(string file)   // constructor
         {
@@ -20,6 +20,14 @@ namespace RKI
 
             int ndx = fileName.LastIndexOf('.');
             hashedName = fileName.Remove(ndx) + "_Hashed" + fileName.Substring(ndx);
+        }
+
+        public string HashedName  // "Hashed" csv-Namen liefern
+        {
+            get
+            {
+                return hashedName;
+            }
         }
 
         public void RemoveFile()  // csv-Datei "hashed" umbenennen
@@ -40,13 +48,37 @@ namespace RKI
                 {
                     using (SHA256 sha256 = SHA256.Create())
                     {
-                        // Header-Zeile lesen
-                        sr.ReadLine();
+                        // Original Header-Zeile lesen, anpassen (FID -> Hash, Datenstand raus) und schreiben
+                        s = sr.ReadLine();
+
+                        // FID,IdBundesland,Bundesland,Landkreis,Altersgruppe,Geschlecht,AnzahlFall,AnzahlTodesfall,Meldedatum,IdLandkreis, Datenstand,
+                        //   0            1          2         3            4          5          6               7          8           9          10
+                        // Datenstand,NeuerFall,NeuerTodesfall,Refdatum,NeuGenesen,AnzahlGenesen,IstErkrankungsbeginn,Altersgruppe2
+                        //      11-12        13             14       15         16            17                   18            19
+                        var splitted = s.Split(',');
+                        splitted[0] = "Hash";
+                        s = "";
+                        for (int n = 0; n <= 9; ++n)
+                        {
+                            s += splitted[n];
+                            s += ",";
+                        }
+                        for (int n = 11; n <= 16; ++n)
+                        {
+                            s += splitted[n];
+                            s += ",";
+                        }
+                        s += splitted[17];
+                        sw.WriteLine(s);
 
                         // ... und jetzt den Rest
                         while ((s = sr.ReadLine()) != null)
                         {
-                            var splitted = s.Split(',');
+                            // FID,IdBundesland,Bundesland,Landkreis,Altersgruppe,Geschlecht,AnzahlFall,AnzahlTodesfall,Meldedatum,IdLandkreis,
+                            //   0            1          2         3            4          5          6               7          8           9
+                            // Datenstand,NeuerFall,NeuerTodesfall,Refdatum,NeuGenesen,AnzahlGenesen,IstErkrankungsbeginn,Altersgruppe2
+                            //      10-11        12             13       14         15            16                   17            18
+                            splitted = s.Split(',');
 
                             if (doit)
                             {
@@ -56,11 +88,6 @@ namespace RKI
 
                                 doit = false;   // den Datenstand nur 1 mal bestimmen
                             }
-
-                            // FID,IdBundesland,Bundesland,Landkreis,Altersgruppe,Geschlecht,AnzahlFall,AnzahlTodesfall,Meldedatum,IdLandkreis,
-                            //   0            1          2         3            4          5          6               7          8           9
-                            // Datenstand,NeuerFall,NeuerTodesfall,Refdatum,NeuGenesen,AnzahlGenesen,IstErkrankungsbeginn,Altersgruppe2
-                            //      10-11        12             13       14         15            16                   17            18
 
                             // FID und Datenstand ignorieren
                             s = "";

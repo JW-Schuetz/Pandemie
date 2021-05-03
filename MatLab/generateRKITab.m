@@ -33,17 +33,17 @@ function newTab = doIt( tab, fileName, dstDir, version, inputFormat, idpos, debu
     switch idpos
         case 4
             % Assembly meines Präprozessors laden
-            assembly = NET.addAssembly( 'D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.dll' );
+            NET.addAssembly( 'D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.dll' );
 
             % Klasse RKI konstruieren
             rki = RKI.RKIPreProcess(fileName);
-            % CSV-Datei mit Hash versehen -> RKI_COVID19_Hashed.csv
+            % csv-Datei mit Hash versehen -> RKI_COVID19_Hashed.csv
             datenstand = rki.PreProcessFile;
-            % Umbenennen: RKI_COVID19_Hashed.csv -> RKI_COVID19.csv
-            rki.RemoveFile;
+            % "Hashed" csv-Dateinamen holen
+            fileName = rki.HashedName;
 
         otherwise
-                datenstand = '';
+            datenstand = '';
     end
 
     % Datei 'RKI_COVID19.csv' lesen
