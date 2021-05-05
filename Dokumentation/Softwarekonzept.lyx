@@ -114,26 +114,38 @@ Falldaten
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 'Datenstand.txt' auswerten: falls bereits aktuell, nichts tun
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 Aktuelle Falldaten als csv-Datei herunterladen
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 Aktuelle Falldaten mit Hash versehen und als csv-Datei abspeichern (C#)
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 Gehashte csv-Falldatendatei als MatLab-Tabelle einlesen
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 Falldaten csv-Datei und gehashte csv-Falldatendatei löschen
 \end_layout
 
 \begin_layout Itemize
+
+\color green
 Bereits vorhandene Hashes aus MatLab-Tabelle entfernen -> Delta-MatLab-Tabelle
 \end_layout
 
@@ -154,12 +166,12 @@ Datenstand der Delta-MatLab-Tabelle in 'Datenstand.txt' ablegen
 \end_layout
 
 \begin_layout Itemize
-Neue Hashes in Liste der bereits vorhandenen Hashes integrieren
+Neue Hashes in Liste der bereits vorhandenen Hashes ('hashes.mat') integrieren
 \end_layout
 
 \begin_layout Itemize
-Delta-MatLab-Tabelle als mat-Datei mit Datenstand im Namen abspeichern (Director
-y Tabellen)
+Delta-MatLab-Tabelle als mat-Datei mit Datenstand und 'Hashed' im Namen
+ abspeichern (Directory Tabellen)
 \end_layout
 
 \end_body

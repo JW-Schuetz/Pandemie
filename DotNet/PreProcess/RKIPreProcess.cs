@@ -30,10 +30,10 @@ namespace RKI
             }
         }
 
-        public void RemoveFile()  // csv-Datei "hashed" umbenennen
+        public void RemoveFiles()  // csv-Dateien löschen
         {
             File.Delete(fileName);
-            File.Move(hashedName, fileName);
+            File.Delete(hashedName);
         }
 
         public string PreProcessFile()  // File prozessieren
@@ -84,7 +84,7 @@ namespace RKI
                             {
                                 datenstand = splitted[10];
                                 var sp = datenstand.Split('"');
-                                datenstand = sp[1] + ", 00:00";
+                                datenstand = sp[1] + " 00:00";
 
                                 doit = false;   // den Datenstand nur 1 mal bestimmen
                             }
