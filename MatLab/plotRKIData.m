@@ -23,7 +23,7 @@ function plotRKIData()
 
     % Zielordner für die erzeugten Dateien (im Fall saveData=true)
     if( auto )
-        outputDirPrefix = 'D:\Projekte\Pandemie\LyX\';
+        outputDirPrefix = '..\LyX\';
         kreisName       = { 'Odenwald', 'Darmstadt', 'Frankfurt', 'Gross-Gerau', 'LK-Offenbach' };
     else
         outputDirPrefix = 'D:\VBSharedFolder\Debian\Pandemie\'; %#ok<UNRCH>
