@@ -25,7 +25,7 @@
     infile = [ srcDir, 'Impfquoten\', inputImmuFile ];
     generateImmuData( infile, dstImmuDir );
 
-	% Datei 'RKI_COVID19.csv' (mit curl) herunterladen und auslesen
+	% Datei 'RKI_COVID19.csv' (mit curl) herunterladen und auslesen!
     infile = [ srcDir, inputDataFile ];
     tab    = generateRKITab( infile, dstTabDir, version, idpos, 'yyyy/MM/dd HH:mm:ss' );
 
