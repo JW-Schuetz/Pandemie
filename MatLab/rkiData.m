@@ -12,7 +12,7 @@
     dstImmuDir    = '..\Impfquoten\';
     inputDataFile = 'RKI_COVID19.csv';
     outputFile    = 'rkiMap.mat';
-
+ 
     % Messung der Ausführungszeit
     startTime = datetime( 'now' );
 
