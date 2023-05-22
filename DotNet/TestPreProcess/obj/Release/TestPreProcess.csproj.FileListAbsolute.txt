@@ -1,0 +1,10 @@
+D:\Projekte\Pandemie\DotNet\TestPreProcess\bin\Release\TestPreProcess.exe.config
+D:\Projekte\Pandemie\DotNet\TestPreProcess\bin\Release\TestPreProcess.exe
+D:\Projekte\Pandemie\DotNet\TestPreProcess\bin\Release\TestPreProcess.pdb
+D:\Projekte\Pandemie\DotNet\TestPreProcess\bin\Release\PreProcess.dll
+D:\Projekte\Pandemie\DotNet\TestPreProcess\bin\Release\PreProcess.pdb
+D:\Projekte\Pandemie\DotNet\TestPreProcess\obj\Release\TestPreProcess.csprojAssemblyReference.cache
+D:\Projekte\Pandemie\DotNet\TestPreProcess\obj\Release\TestPreProcess.csproj.CoreCompileInputs.cache
+D:\Projekte\Pandemie\DotNet\TestPreProcess\obj\Release\TestPreProcess.csproj.CopyComplete
+D:\Projekte\Pandemie\DotNet\TestPreProcess\obj\Release\TestPreProcess.exe
+D:\Projekte\Pandemie\DotNet\TestPreProcess\obj\Release\TestPreProcess.pdb

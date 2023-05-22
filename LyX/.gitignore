@@ -1,0 +1,50 @@
+*.lyx~
+/LandkreiseNeuinfektionen.eps
+/LastCases-Darmstadt.csv
+/LastCases-Frankfurt Main.csv
+/LastCases-Gross-Gerau.csv
+/LastCases-LK Offenbach.csv
+/LastCases-Odenwaldkreis.csv
+/LastDeaths-Darmstadt.csv
+/LastDeaths-Frankfurt Main.csv
+/LastDeaths-Gross-Gerau.csv
+/LastDeaths-LK Offenbach.csv
+/LastDeaths-Odenwaldkreis.csv
+/Neu-Tot-Datenstand-Einwohneranzahl.eps
+/Neuinfektionen-Altersklassen-Darmstadt.eps
+/Neuinfektionen-Altersklassen-Frankfurt Main.eps
+/Neuinfektionen-Altersklassen-Gross-Gerau.eps
+/Neuinfektionen-Altersklassen-LK Offenbach.eps
+/Neuinfektionen-Altersklassen-Odenwaldkreis.eps
+/Neuinfektionen-Einwohneranzahl-Darmstadt.eps
+/Neuinfektionen-Einwohneranzahl-Frankfurt Main.eps
+/Neuinfektionen-Einwohneranzahl-Gross-Gerau.eps
+/Neuinfektionen-Einwohneranzahl-LK Offenbach.eps
+/Neuinfektionen-Einwohneranzahl-Odenwaldkreis.eps
+/NeuinfektionenLandkreis-Altersklassen-Darmstadt.eps
+/NeuinfektionenLandkreis-Altersklassen-Frankfurt Main.eps
+/NeuinfektionenLandkreis-Altersklassen-Gross-Gerau.eps
+/NeuinfektionenLandkreis-Altersklassen-LK Offenbach.eps
+/NeuinfektionenLandkreis-Altersklassen-Odenwaldkreis.eps
+/Statistik-Darmstadt.txt
+/Statistik-Frankfurt Main.txt
+/Statistik-Gross-Gerau.txt
+/Statistik-LK Offenbach.txt
+/Statistik-Odenwaldkreis.txt
+/Todesfälle-Altersklassen-Darmstadt.eps
+/Todesfälle-Altersklassen-Frankfurt Main.eps
+/Todesfälle-Altersklassen-Gross-Gerau.eps
+/Todesfälle-Altersklassen-LK Offenbach.eps
+/Todesfälle-Altersklassen-Odenwaldkreis.eps
+/Todesfälle-Einwohneranzahl-Darmstadt.eps
+/Todesfälle-Einwohneranzahl-Frankfurt Main.eps
+/Todesfälle-Einwohneranzahl-Gross-Gerau.eps
+/Todesfälle-Einwohneranzahl-LK Offenbach.eps
+/Todesfälle-Einwohneranzahl-Odenwaldkreis.eps
+/Testanzahlen.eps
+/Pandemie1.eps
+/Neuinfektionen-Einwohneranzahl-Altersgruppen.eps
+/ImpfStatistik.eps
+*.csv
+*.eps
+*.txt

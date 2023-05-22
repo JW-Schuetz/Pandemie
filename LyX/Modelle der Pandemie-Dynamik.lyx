@@ -1,0 +1,1180 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Pandemiemodelle
+\end_layout
+
+\begin_layout Author
+Jürgen Womser-Schütz, https://github.com/JW-Schuetz 
+\end_layout
+
+\begin_layout Date
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Kein Datum
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Einfachstes SIR-Modell 
+\end_layout
+
+\begin_layout Standard
+Die Grundannahme ist: die Gesamtzahl der Individuen in der Population setzt
+ sich aus den infizierten 
+\begin_inset Formula $\widehat{I}\left(t\right)$
+\end_inset
+
+, den infizierbaren 
+\begin_inset Formula $\widehat{S}\left(t\right)$
+\end_inset
+
+ und den wieder gesundeten oder toten Individuen 
+\begin_inset Formula $\widehat{R}\left(t\right)$
+\end_inset
+
+ zusammen und ist konstant.
+ Es gilt also die Bilanzgleichung 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\widehat{S}\left(t\right)+\widehat{I}\left(t\right)+\widehat{R}\left(t\right)=\text{const.}\label{eq:Bilanz}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die konstante Gesamtpopulation wird mit 
+\begin_inset Formula $P=\widehat{S}\left(t\right)+\widehat{I}\left(t\right)+\widehat{R}\left(t\right)$
+\end_inset
+
+ bezeichnet.
+\end_layout
+
+\begin_layout Subsection*
+Variable 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\widehat{S}\left(t\right)$
+\end_inset
+
+ suszeptible, Anzahl der infizierbaren Individuen, d.h.
+ jedes Induviduum der Population, das nicht infiziert oder immun oder tot
+ ist 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\widehat{I}\left(t\right)$
+\end_inset
+
+ infected, Anzahl der infizierten (und infektiösen) Individuen 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\widehat{R}\left(t\right)$
+\end_inset
+
+ recovered, Anzahl der wieder gesundeten oder toten Individuen (und nun
+ nicht mehr infektiösen) Individuen 
+\end_layout
+
+\begin_layout Subsection*
+Modellparameter 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P$
+\end_inset
+
+ Populationsgrösse, Anzahl der Individuen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\widehat{\alpha}$
+\end_inset
+
+ Infektionsrate, 
+\begin_inset Formula $\widehat{\alpha}\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\beta$
+\end_inset
+
+ Gesundungsrate, 
+\begin_inset Formula $\beta\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Differentialgleichungen 
+\end_layout
+
+\begin_layout Subsubsection*
+Anfangsbedingungen
+\end_layout
+
+\begin_layout Standard
+Es wird von einem quadratischen Lebensraum der Kantenlänge 
+\begin_inset Formula $Q$
+\end_inset
+
+ ausgegangen.
+ In ihm sollen sich anfangs 
+\begin_inset Formula $\widehat{S}_{Q}$
+\end_inset
+
+ infizierbare und 
+\begin_inset Formula $\widehat{I}_{Q}$
+\end_inset
+
+ infizierte Individuen mit bei einer Gesamtpopulation von 
+\begin_inset Formula $P_{Q}=\widehat{S}_{Q}+\widehat{I}_{Q}$
+\end_inset
+
+ Individuen gleichverteilt aufhalten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Pandemie1.eps
+	lyxscale 150
+	scale 40
+	BoundingBox -450bp 0bp 360bp 371bp
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Zum Infizierten 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ benachbarte infizierbare Individuen 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ bis 
+\begin_inset Formula $S_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Berechnet werden soll die Anzahl der infizierbaren Individuum, die einen
+ Abstand 
+\begin_inset Formula $d$
+\end_inset
+
+ zum nächsten Infizierten unterschreiten, dieses also infizieren könnten
+ (siehe Abbildung 1).
+\end_layout
+
+\begin_layout Standard
+Das ist noch zu tun!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Die Wahrscheinlichkeitsdichte der ZV der 
+\begin_inset Formula $x$
+\end_inset
+
+-Koordinate des infizierten Individuums ist durch 
+\begin_inset Formula $p(x)=\frac{x}{\widehat{I}_{Q}Q}$
+\end_inset
+
+ gegeben, die der 
+\begin_inset Formula $y$
+\end_inset
+
+-Koordinate durch 
+\begin_inset Formula $p(y)=\frac{y}{\widehat{I}_{Q}Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Da die beiden Ortskoordinaten voneinander statistisch unabhängig sein sollen,
+ gilt 
+\begin_inset Formula $p\left(\begin{array}{cc}
+x, & y\end{array}\right)=p\left(x\right)p\left(y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+Die Wahrscheinlichkeit im quadratischen Lebensraum der Kantenlänge 
+\begin_inset Formula $Q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dynamik
+\end_layout
+
+\begin_layout Standard
+Die Dynamik wird von dem folgenden autonomen Differentialgleichungssystem
+ erster Ordnung beschrieben 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wikipedia-1"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Subsection*
+Wikipedia
+\end_layout
+
+\begin_layout Plain Layout
+Wikipedia-Gleichungen: 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d\widehat{S}\left(t\right)}{dt} & = & -\frac{\beta}{N}\widehat{S}\left(t\right)\widehat{I}\left(t\right)\\
+\frac{d\widehat{I}\left(t\right)}{dt} & = & \frac{\beta}{N}\widehat{S}\left(t\right)\widehat{I}\left(t\right)-\gamma\widehat{I}\left(t\right)\\
+\frac{d\widehat{R}\left(t\right)}{dt} & = & \gamma\widehat{I}\left(t\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Basis-Reproduktionszahl: 
+\begin_inset Formula $R_{0}=\frac{\beta}{\gamma}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d\widehat{S}\left(t\right)}{dt} & = & -\widehat{\alpha}\widehat{S}\left(t\right)\widehat{I}\left(t\right)\\
+\frac{d\widehat{I}\left(t\right)}{dt} & = & \widehat{\alpha}\widehat{S}\left(t\right)\widehat{I}\left(t\right)-\beta\widehat{I}\left(t\right)\\
+\frac{d\widehat{R}\left(t\right)}{dt} & = & \beta\widehat{I}\left(t\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula 
+\[
+\frac{d}{dt}\left[\widehat{S}\left(t\right)+\widehat{I}\left(t\right)+\widehat{R}\left(t\right)\right]=0
+\]
+
+\end_inset
+
+ist die Bilanzgleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Bilanz"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) erfüllt und 
+\begin_inset Formula $P$
+\end_inset
+
+ ist konstant.
+\end_layout
+
+\begin_layout Standard
+Normierung auf die Anzahl 
+\begin_inset Formula $P$
+\end_inset
+
+ der Individuen der Gesamtpopulation liefert zunächst 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Es gilt 
+\begin_inset Formula 
+\begin{eqnarray*}
+P & = & \widehat{S}\left(t\right)+\widehat{I}\left(t\right)+\widehat{R}\left(t\right)\\
+P & = & P\left[S\left(t\right)+I\left(t\right)+R\left(t\right)\right]\\
+1 & = & S\left(t\right)+I\left(t\right)+R\left(t\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{P^{2}}\frac{d\widehat{S}\left(t\right)}{dt} & = & -\widehat{\alpha}\frac{\widehat{S}\left(t\right)}{P}\frac{\widehat{I}\left(t\right)}{P}\\
+\frac{1}{P^{2}}\frac{d\widehat{I}\left(t\right)}{dt} & = & \widehat{\alpha}\frac{\widehat{S}\left(t\right)}{P}\frac{\widehat{I}\left(t\right)}{P}-\frac{\beta}{P}\frac{\widehat{I}\left(t\right)}{P}\\
+\frac{1}{P^{2}}\frac{d\widehat{R}\left(t\right)}{dt} & = & \frac{\beta}{P}\frac{\widehat{I}\left(t\right)}{P}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+mit den auf 
+\begin_inset Formula $P$
+\end_inset
+
+ normierten Grössen 
+\begin_inset Formula 
+\begin{eqnarray}
+S\left(t\right) & = & \frac{\widehat{S}\left(t\right)}{P}\label{eq:Normierung}\\
+I\left(t\right) & = & \frac{\widehat{I}\left(t\right)}{P}\nonumber \\
+R\left(t\right) & = & \frac{\widehat{R}\left(t\right)}{P}\nonumber 
+\end{eqnarray}
+
+\end_inset
+
+und mit der Abkürzung 
+\begin_inset Formula $\alpha=P\widehat{\alpha}$
+\end_inset
+
+ folgen die Differentialgleichungen 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{dS\left(t\right)}{dt} & = & -\alpha S\left(t\right)I\left(t\right)\label{eq:DGL1}\\
+\frac{dI\left(t\right)}{dt} & = & \alpha S\left(t\right)I\left(t\right)-\beta I\left(t\right)\label{eq:DGL2}\\
+\frac{dR\left(t\right)}{dt} & = & \beta I\left(t\right).\label{eq:DGL3}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es gilt wieder 
+\begin_inset Formula $S\left(t\right)+I\left(t\right)+R\left(t\right)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Anfangsbedingungen 
+\end_layout
+
+\begin_layout Standard
+Es sollen zum Zeitpunkt 
+\begin_inset Formula $t=0$
+\end_inset
+
+ die Bedingungen 
+\begin_inset Formula $S\left(0\right)=S_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $I\left(0\right)=I_{0}$
+\end_inset
+
+ und 
+\begin_inset Formula $R\left(0\right)=0$
+\end_inset
+
+ gelten.
+ 
+\end_layout
+
+\begin_layout Standard
+Daraus folgt 
+\begin_inset Formula 
+\begin{eqnarray}
+I_{0}+S_{0} & = & 1.\label{eq:Gesamtpopulation}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Folgerungen 
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula $\frac{dS\left(t\right)}{dt}\leq0$
+\end_inset
+
+ gilt für alle Zeiten 
+\begin_inset Formula $t\geq0$
+\end_inset
+
+ die Ungleichung 
+\begin_inset Formula $S_{0}\geq S\left(t\right)$
+\end_inset
+
+.
+ Damit folgt aus der 2.
+ DGL (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DGL2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dI\left(t\right)}{dt} & = & \alpha S\left(t\right)I\left(t\right)-\beta I\left(t\right)\\
+\frac{dI\left(t\right)}{dt}+\beta I\left(t\right) & = & \alpha S\left(t\right)I\left(t\right)\\
+\frac{dI\left(t\right)}{dt}+\beta I\left(t\right) & \leq & \alpha S_{0}I\left(t\right)\\
+\frac{dI\left(t\right)}{dt} & \leq & \alpha S_{0}I\left(t\right)-\beta I\left(t\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dI\left(t\right)}{dt} & \leq & I\left(t\right)\left(\alpha S_{0}-\beta\right).
+\end{eqnarray*}
+
+\end_inset
+
+Falls also 
+\begin_inset Formula $S_{0}\geq\frac{\beta}{\alpha}$
+\end_inset
+
+ gilt, steigt die Anzahl der Infizierten an.
+ Der Kehrwert von 
+\begin_inset Formula $\frac{\beta}{\alpha}$
+\end_inset
+
+ wird Kontaktverhältnis 
+\begin_inset Formula 
+\begin{eqnarray}
+r & = & \frac{\alpha}{\beta}\label{eq:DefR}
+\end{eqnarray}
+
+\end_inset
+
+genannt.
+ Es beschreibt den Anteil der Population, der in Kontakt mit einem infizierten
+ Individuum kommt.
+ Eine weitere Kennzahl ist 
+\begin_inset Formula 
+\begin{eqnarray}
+R_{0} & = & \frac{\alpha}{\beta}S_{0}=rS_{0}\label{eq:DefR0}
+\end{eqnarray}
+
+\end_inset
+
+sie wird Basis-Reproduktionszahl genannt.
+ Sie ist grösser gleich 
+\begin_inset Formula $1$
+\end_inset
+
+, falls die Anzahl der Infizierten ansteigt.
+ Sie beschreibt die Anzahl sekundärer Infektionen, die durch ein infiziertes
+ Individuum verursacht wird.
+\end_layout
+
+\begin_layout Standard
+Dividiert man die 2.
+ DGL (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DGL2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) durch die 1.
+ DGL (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DGL1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) ein, so ergibt sich 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Man erhält
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dI\left(t\right)}{dt} & = & \alpha S\left(t\right)I\left(t\right)-\beta I\left(t\right)\\
+\\
+\frac{dI\left(t\right)}{dS\left(t\right)} & = & \frac{\alpha S\left(t\right)I\left(t\right)-\beta I\left(t\right)}{-\alpha S\left(t\right)I\left(t\right)}\\
+ & = & -1+\frac{\beta I\left(t\right)}{\alpha S\left(t\right)I\left(t\right)}\\
+ & = & \frac{\beta}{\alpha S\left(t\right)}-1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Es muss aber 
+\begin_inset Formula $S\left(t\right)\neq0$
+\end_inset
+
+ und 
+\begin_inset Formula $I\left(t\right)\neq0$
+\end_inset
+
+ gelten.
+ Dies muss durch entsprechende Wahl der Anfangsbedingungen sichergestellt
+ werden.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{dI\left(t\right)}{dS\left(t\right)} & = & \frac{\beta}{\alpha S\left(t\right)}-1.\label{eq:dI nach dS}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Variablentrennung liefert 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+dI\left(t\right) & = & \frac{\beta dS\left(t\right)}{\alpha S\left(t\right)}-dS\left(t\right)\\
+dI\left(t\right) & = & \left[\frac{\beta}{\alpha S\left(t\right)}-1\right]dS\left(t\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+dI\left(t\right) & = & \left[\frac{\beta}{\alpha S\left(t\right)}-1\right]dS\left(t\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durch Integration folgt die Lösung 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+I\left(t\right) & = & \frac{\beta}{\alpha}\ln S\left(t\right)-S\left(t\right)+c_{0}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für die Integrationskonstante 
+\begin_inset Formula $c_{0}$
+\end_inset
+
+ folgt aus den Anfangsbedingungen mit Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Gesamtpopulation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+c_{0} & = & 1-\frac{\beta}{\alpha}\ln S_{0}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+und man erhält insgesamt die Gleichung 
+\begin_inset Formula 
+\begin{eqnarray}
+I\left(t\right) & = & 1-S\left(t\right)+\frac{\beta}{\alpha}\ln\frac{S\left(t\right)}{S_{0}}.\label{eq:Infected}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die maximale Anzahl Infizierter tritt wegen Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dI nach dS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) für 
+\begin_inset Formula $\frac{\beta}{\alpha S\left(t\right)}=1$
+\end_inset
+
+ oder 
+\begin_inset Formula $S\left(t\right)=\frac{\beta}{\alpha}$
+\end_inset
+
+ auf.
+ 
+\end_layout
+
+\begin_layout Standard
+Setzt man dies in Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Infected"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) ein, erhält man mit der Definition (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:DefR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Man erhält 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+I\left(t\right) & = & I_{0}+S_{0}-\frac{\beta}{\alpha}+\frac{\beta}{\alpha}\ln\frac{\beta}{\alpha S_{0}}\\
+ & = & I_{0}+S_{0}-\frac{1}{r}\left(1-\ln\frac{\beta}{\alpha S_{0}}\right)\\
+ & = & I_{0}+S_{0}-\frac{1}{r}\left(1+\ln\frac{\alpha S_{0}}{\beta}\right)\\
+ & = & I_{0}+S_{0}-\frac{1}{r}\left(1+\ln rS_{0}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+I_{max} & = & 1-\frac{1}{r}\left[1+\ln\left(rS_{0}\right)\right].\label{eq:MaxInfected}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Wie gross darf 
+\begin_inset Formula $r$
+\end_inset
+
+ sein, damit höchstens 
+\begin_inset Formula $I_{max}$
+\end_inset
+
+ Personen infiziert werden?
+\end_layout
+
+\begin_layout Standard
+Lösen der Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:MaxInfected"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) nach 
+\begin_inset Formula $r$
+\end_inset
+
+ liefert zunächst 
+\begin_inset Formula 
+\begin{eqnarray}
+1+\ln\left(rS_{0}\right)+\left(1-I_{max}\right)r & = & 0\label{eq:rAsFunOfImax}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+mit der Lösung 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+r\left(I_{max}\right) & = & \frac{\omega\left(\ln\left(\frac{1-I_{max}}{S_{0}}\right)-1\right)}{1-I_{max}}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dabei ist 
+\begin_inset Formula $\omega\left(x\right)$
+\end_inset
+
+ hier, wie auch auch im Folgenden, die Wright-
+\begin_inset Formula $\omega$
+\end_inset
+
+-Funktion (siehe z.B.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wright"
+literal "false"
+
+\end_inset
+
+ oder 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Wikipedia-2"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Wie gross ist am Ende der Pandemie die Anzahl der infizierbaren Individuen?
+\end_layout
+
+\begin_layout Standard
+Für das Ende der Pandemie, also für grosse Zeiten 
+\begin_inset Formula $T\gg1$
+\end_inset
+
+, gilt 
+\begin_inset Formula $I\left(T\right)=0$
+\end_inset
+
+, d.h.
+ es gibt keine infizierten Individuen mehr.
+ 
+\end_layout
+
+\begin_layout Standard
+Aus Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Infected"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) folgt mit 
+\begin_inset Formula $I\left(T\right)=0$
+\end_inset
+
+ zunächst 
+\begin_inset Formula 
+\begin{eqnarray*}
+1-S\left(t\right)+\frac{\beta}{\alpha}\ln\frac{S\left(t\right)}{S_{0}} & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+ mit der Lösung 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+S\left(T\right) & = & -\frac{1}{r}\omega\left[\ln\left(rS_{0}\right)-r\right].
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aus der Bilanzgleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Bilanz"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) folgt mit Hilfe der Gleichung (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Gesamtpopulation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) für die Anzahl der gesundeten oder toten Individuen 
+\begin_inset Formula 
+\begin{eqnarray*}
+R\left(T\right) & = & 1-S\left(T\right).
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Modellanpassung
+\end_layout
+
+\begin_layout Standard
+Im Folgenden soll das oben beschriebene SIR-Modell an die für Deutschland
+ zur Verfügung stehenden Daten angepasst werden.
+\end_layout
+
+\begin_layout Standard
+Zur Modellierung des stattlichen Handelns (wie z.B.
+ Veranstaltungsverbote, Kontaktsperren) werden Zeitintervalle definiert,
+ deren Dynamik jeweils durch einen konstanten Parametersatz beschrieben
+ werden.
+ Es wird gefordert, dass die Modell-Lösungen auf diesen Zeitintervallen
+ an ihren Rändern stetig ineinander übergehen.
+\end_layout
+
+\begin_layout Standard
+Das ist noch zu tun!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+SIR-Modell mit nicht konstanter Population 
+\end_layout
+
+\begin_layout Standard
+Das ist noch zu tun!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Zahlenbeispiel: mit 1 Infizierten bei 80 Millionen Einwohnern und maximal
+ 150000 zulässigen Infektionen erhält man 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+I_{0} & = & 1\\
+S_{0} & = & 80*10^{6}-1\\
+I_{max} & = & 150*10^{3}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "Wikipedia-1"
+literal "false"
+
+\end_inset
+
+https://de.wikipedia.org/wiki/SIR-Modell
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "2"
+key "Wright"
+literal "false"
+
+\end_inset
+
+The Wright 
+\begin_inset Formula $\omega$
+\end_inset
+
+ function; Robert M.
+ Corless, D.
+ J.
+ Jefirey; AISC-Calculemus 2002, LNAI 2385, pp.
+ 76-89, 2002, Springer-Verlag
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "3"
+key "Wikipedia-2"
+literal "false"
+
+\end_inset
+
+https://en.wikipedia.org/wiki/Wright_Omega_function
+\end_layout
+
+\end_body
+\end_document

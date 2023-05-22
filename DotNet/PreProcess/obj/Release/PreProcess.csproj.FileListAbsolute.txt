@@ -1,0 +1,6 @@
+D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.dll
+D:\Projekte\Pandemie\DotNet\PreProcess\bin\Release\PreProcess.pdb
+D:\Projekte\Pandemie\DotNet\PreProcess\obj\Release\PreProcess.csproj.CoreCompileInputs.cache
+D:\Projekte\Pandemie\DotNet\PreProcess\obj\Release\PreProcess.dll
+D:\Projekte\Pandemie\DotNet\PreProcess\obj\Release\PreProcess.pdb
+D:\Projekte\Pandemie\DotNet\PreProcess\obj\Release\PreProcess.csprojAssemblyReference.cache

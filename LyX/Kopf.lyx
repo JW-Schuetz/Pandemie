@@ -1,0 +1,355 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 1cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "literate={{Ã€}{{\&quot;a}}1 {Ã¶}{{\&quot;o}}1 {ÃŒ}{{\&quot;u}}1}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Die Datenbasis wird vom Robert-Koch-Institut 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RKI-1"
+literal "false"
+
+\end_inset
+
+ in Form einer CSV-Datei 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RKI-2"
+literal "false"
+
+\end_inset
+
+ bereitgestellt.
+ Die Bedeutung der in der CSV-Datei enthaltenen Daten werden in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RKI-3"
+literal "false"
+
+\end_inset
+
+ näher beschrieben.
+\end_layout
+
+\begin_layout Standard
+Die Anzahlen der Covid19-PCR-Tests werden einmal wöchentlich in den Situationsbe
+richten des Robert-Koch-Instituts veröffentlicht 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RKI-4"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Es werden die Einwohnerzahlen des Statistischen Bundesamtes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Statis-1"
+literal "false"
+
+\end_inset
+
+ benutzt.
+ Zur (in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Statis-1"
+literal "false"
+
+\end_inset
+
+ fehlenden) Aufschlüsselung der Einwohner der Stadtkreise von Berlin wird
+ auf 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Berlin"
+literal "false"
+
+\end_inset
+
+ zurückgegriffen.
+\end_layout
+
+\begin_layout Standard
+Alle Inzidenzen beziehen sich auf 100000 Einwohner und einen Zeitraum von
+ 7 Tagen.
+ 
+\end_layout
+
+\begin_layout Standard
+In den Abbildungen sind Neuinfektions- und Todeszahlen auf jeweils 100000
+ Einwohner des jeweils dargestellten Gebietes (Bundesrepublik, Bundesland
+ oder Landkreis) bezogen.
+ Sie zeigen gleitende Mittelwerte der Zeitreihen über ein 7-Tages-Intervall.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Quellen meiner Auswertesoftware (MatLab) finden sich in meinem GitHub-Reposi
+tory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GitHub-1"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Statistik und aktuelle lokale Fälle
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Subsubsection*
+Impfstatistik
+\end_layout
+
+\begin_layout Plain Layout
+Nimmt man an, dass alle 83 Millionen Einwohner Deutschlands geimpft werden
+ sollen und dass die mittlere Impfgeschwindigkeit konstant ist, kommt man
+ auf das (viel zu pessimistisch!) geschätzte Datum der 2.
+ Impfung des letzten Bürgers 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Es wird ein linearer Zusammenhang angenommen zwischen der Zeit 
+\begin_inset Formula $t$
+\end_inset
+
+ und Anzahl der Impfungen 
+\begin_inset Formula $n$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+n & = & \alpha t+\beta.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Zum Impfstartzeitpunkt 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ galt 
+\begin_inset Formula $n=0$
+\end_inset
+
+ daraus folgt 
+\begin_inset Formula 
+\begin{eqnarray*}
+0 & = & \alpha t_{0}+\beta\\
+\beta & = & -\alpha t_{0}.
+\end{eqnarray*}
+
+\end_inset
+
+ Zum aktuellen Zeitpunkt 
+\begin_inset Formula $t_{a}$
+\end_inset
+
+ seien 
+\begin_inset Formula $N$
+\end_inset
+
+ Impfungen verabreicht worden
+\begin_inset Formula 
+\begin{eqnarray*}
+N & = & \alpha t_{a}+\beta\\
+ & = & \alpha t_{a}-\alpha t_{0}\\
+\alpha & = & \frac{N}{t_{a}-t_{0}}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Insgesamt folgt
+\begin_inset Formula 
+\begin{eqnarray*}
+n & = & \alpha t+\beta\\
+ & = & \alpha\left(t-t_{0}\right)\\
+ & = & N\frac{t-t_{0}}{t_{a}-t_{0}}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Die Frage ist, zu welchem Zeitpunkt 
+\begin_inset Formula $t_{e}$
+\end_inset
+
+ jeder der 
+\begin_inset Formula $N_{e}$
+\end_inset
+
+ Einwohner 2 Impfungen bekommen hat
+\begin_inset Formula 
+\begin{eqnarray*}
+2N_{e} & = & N\frac{t-t_{0}}{t_{a}-t_{0}}\\
+\frac{2N_{e}}{N}\left(t_{a}-t_{0}\right) & = & t-t_{0}\\
+t & = & \frac{2N_{e}}{N}\left(t_{a}-t_{0}\right)+t_{0}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Dreisatz: 1 Mio in 18 Tagen, wann 160 Mio ? In 160 * 18 = 2880 Tagen, also
+ in 7.89 Jahren.-
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "D:/Projekte/Pandemie-Alt/DatumImpfende1.txt"
+lstparams "tabsize=3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Nimmt man zusätzlich an, dass auch die mittlere Steigerungsrate der Impfgeschwin
+digkeit konstant ist, kommt man auf das (viel zu optimistisch!) geschätzte
+ Datum (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Abb 9"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand verbatiminput
+filename "D:/Projekte/Pandemie-Alt/DatumImpfende2.txt"
+lstparams "tabsize=3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
